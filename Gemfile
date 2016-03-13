@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #Framework & adds
-gem "bulma-rails"
+gem "bulma-rails", "~> 0.0.14"
 gem "font-awesome-rails"
 gem 'typekit-rails'
 

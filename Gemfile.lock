@@ -165,7 +165,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bulma-rails
+  bulma-rails (~> 0.0.14)
   byebug
   coffee-rails (~> 4.1.0)
   devise
