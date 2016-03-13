@@ -30,7 +30,8 @@ gem "font-awesome-rails"
 gem 'typekit-rails'
 gem 'rails_12factor', group: :production
 
-
+#Paperclip for upload images
+gem "paperclip", "~> 4.3"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
