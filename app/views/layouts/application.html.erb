@@ -5,14 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= typekit 'ccn4the' %>
+  <script src="https://use.typekit.net/ccn4the.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 </head>
 <body>
 	<%=render '/layouts/header'%>
-	<div class="container">
-		<div class="columns">
+	<div class="container is-fullwidth">
 		<%= yield %>
-	</div>
 	</div>
 </body>
 </html>

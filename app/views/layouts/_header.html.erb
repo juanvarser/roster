@@ -3,14 +3,13 @@
     <!-- Left side -->
     <div class="header-left">
       <a class="header-item" href="#">
-        <img src="images/bulma.png" alt="Logo">
+        App!
       </a>
-      <a class="header-tab" href="#">
-        Tab
-      </a>
-      <a class="header-tab is-active" href="#">
-        Active tab
-      </a>
+      <a class="header-tab bands" href=<%="#{bands_path}"%>>Bands</a>
+      <a class="header-tab events" href="#">Events</a>
+      <a class="header-tab venues" href=<%="#{venues_path}"%>>Venues</a>
+      <a class="header-tab finances" href="#">Finances</a>
+
     </div>
 
     <!-- Hamburger menu (on mobile) -->
@@ -24,9 +23,10 @@
     <div class="header-right header-menu">
       <%if user_signed_in? %>
         <span class="header-item">
+          <a><%= link_to "Settings", edit_user_registration_path %></a>
           <a class="button" data-method="DELETE" href=<%="#{destroy_user_session_path}"%>>Log out</a>
         </span>
-        <% else %>
+      <% else %>
         <span class="header-item">
           <span class="header-item">
             <a><%= link_to "Sign Up", new_user_registration_path %></a>

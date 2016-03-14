@@ -10,8 +10,25 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 
-@import "bulma";
+@import "bulma/utilities/utilities";
+
+@import "bulma/config/variables";
+$mustard-bright: #F5BA06;
+$primary: $mustard-bright;
+$family-sans-serif: "alwyn-new-rounded-web",sans-serif;
+
+@import "bulma/config/generated-variables";
+@import "bulma/base/base";
+@import "bulma/elements/elements";
+@import "bulma/components/components";
+@import "bulma/layout/layout";
+
+
+ .is-wrap{
+	flex-wrap: wrap;
+}
