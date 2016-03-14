@@ -1,4 +1,4 @@
-<header class="header is-primary-color">
+<header class="header">
   <div class="container">
     <!-- Left side -->
     <div class="header-left">
@@ -22,15 +22,18 @@
 
     <!-- Right side -->
     <div class="header-right header-menu">
-      <span class="header-item">
-        <a href="#">Nav item</a>
-      </span>
-      <span class="header-item">
-        <a href="#">Other nav item</a>
-      </span>
-      <span class="header-item">
-        <a class="button" href="#">Button</a>
-      </span>
+      <%if user_signed_in? %>
+        <span class="header-item">
+          <a class="button" data-method="DELETE" href=<%="#{destroy_user_session_path}"%>>Log out</a>
+        </span>
+        <% else %>
+        <span class="header-item">
+          <span class="header-item">
+            <a><%= link_to "Sign Up", new_user_registration_path %></a>
+          </span>
+          <a class="button" href=<%="#{new_user_session_path}"%>>Log in</a>
+        </span>
+      <% end %>
     </div>
   </div>
 </header>
