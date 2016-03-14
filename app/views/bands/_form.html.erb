@@ -1,0 +1,7 @@
+<%= form_for @band do |f| %>
+	<%=f.text_field :name, placeholder:"Band name", class:"input" %>
+	<%=f.text_field :description, placeholder:"Description (max. 250char.)", class:"textarea" %>
+	<%= f.text_field :cache, class:"input is-inline" %>
+	<%= f.file_field :band_image, class:"input" %>
+	<%= f.submit 'Save', class:"button" %>
+<% end %>
