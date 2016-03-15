@@ -1,0 +1,29 @@
+<nav class="artist-menu">
+  <p class="artist-menu-heading">
+    Lorem ipsum
+  </p>
+  <a class="menu-block is-active" href="<%=user_band_path(user_id:@user.id, id:@band.id)%>">
+    <span class="menu-icon">
+      <i class="fa fa-cog"></i>
+    </span>
+    Profile
+  </a>
+  <a class="menu-block" href="#">
+    <span class="menu-icon">
+      <i class="fa fa-calendar-o"></i>
+    </span>
+    Events
+  </a>
+  <a class="menu-block" href="<%=user_band_products_path(band_id:@band.id)%>">
+    <span class="menu-icon">
+      <i class="fa fa-archive"></i>
+    </span>
+    Merchandise
+  </a>
+  <a class="menu-block" href="<%=user_band_finances_path(band_id:@band.id)%>">
+    <span class="menu-icon">
+      <i class="fa fa-balance-scale"></i>
+    </span>
+    Finances
+  </a>
+</nav>

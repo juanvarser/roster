@@ -7,12 +7,20 @@
     </div>
   </div>
 </section>
-
-<div class="columns is-wrap">	
-	<div class="column is-3">
-		<p>navbar vertical</p>
-	</div>
-	<div class="column is-9">
-		<p>description</p>
-	</div>
+<div class="container">
+  <div class="columns is-wrap">	
+  	<div class="column is-3">
+  		<%= render 'menu'%>
+  	</div>
+  	<div class="column is-9">
+  		<div class="content">
+        <h1>Description</h1>
+        <p><%=@band.description%></p>
+        <h1>Cache</h1>
+        <p><%=@band.cache%> €</p>
+      </div>
+      <a class="button is-warning">Update</a>
+      <a class="button is-danger">Delete</a>
+  	</div>
+  </div>
 </div>

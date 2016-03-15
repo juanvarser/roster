@@ -1,0 +1,12 @@
+.is-window-centered{
+	align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.is-margin-bottom{
+	display: inline-block;
+	margin-bottom:20px;
+}

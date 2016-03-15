@@ -11,8 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require best_in_place
-//= require turbolinks
+//= require jquery_ujs
 //= require typekit
 //= require_tree .
 

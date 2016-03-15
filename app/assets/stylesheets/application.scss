@@ -18,6 +18,7 @@
 @import "bulma/utilities/utilities";
 
 @import "bulma/config/variables";
+
 $mustard-bright: #F5BA06;
 $primary: $mustard-bright;
 $family-sans-serif: "alwyn-new-rounded-web",sans-serif;
@@ -26,9 +27,32 @@ $family-sans-serif: "alwyn-new-rounded-web",sans-serif;
 @import "bulma/base/base";
 @import "bulma/elements/elements";
 @import "bulma/components/components";
+
+.card{
+	box-shadow: none;
+}
+
+.menu{
+	border: 1px solid #F5BA06;
+}
+
 @import "bulma/layout/layout";
+.header{
+	height:70px;
+}
 
+.header-tab{
+	height:70px;
+	display:flex;
+}
 
- .is-wrap{
+.is-wrap{
 	flex-wrap: wrap;
+}
+
+.is-primary-color{
+	color: $primary;
+}
+.is-text-bold{
+	font-weight:800;
 }

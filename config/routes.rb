@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
   
-  devise_for :users
   get '/' => 'site#index'
 
-  resources :bands, only: [:index, :new, :create,:show, :edit,:update, :destroy]
-  resources :venues, only: [:index, :new, :create,:show, :edit,:update, :destroy]
+  devise_for :users do
+    get 'users/:id', to: 'users#show'
+  end
+  resources :users do
+    resources :bands, only: [:index, :new, :create,:show, :edit,:update, :destroy] do
+      resources :products, only: [:index, :new, :create,:edit,:update, :destroy]
+      resources :finances, only: [:index, :new, :create,:edit,:update, :destroy]
+    end
+    resources :venues, only: [:index, :new, :create,:show, :edit,:update, :destroy]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

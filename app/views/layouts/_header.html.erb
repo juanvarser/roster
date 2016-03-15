@@ -2,12 +2,13 @@
   <div class="container">
     <!-- Left side -->
     <div class="header-left">
-      <a class="header-item" href="#">
-        App!
+      <a class="header-item" href="/">
+        <h1 class="title is-3 is-primary-color is-text-bold">Roster</h1>
       </a>
-      <a class="header-tab bands" href=<%="#{bands_path}"%>>Bands</a>
+      <%if user_signed_in?%>
+      <a class="header-tab bands" href=<%="#{user_bands_path(user_id: current_user.id)}"%>>Bands</a>
       <a class="header-tab events" href="#">Events</a>
-      <a class="header-tab venues" href=<%="#{venues_path}"%>>Venues</a>
+      <a class="header-tab venues" href=<%="#{user_venues_path(user_id: current_user.id)}"%>>Venues</a>
       <a class="header-tab finances" href="#">Finances</a>
 
     </div>
@@ -18,20 +19,21 @@
       <span></span>
       <span></span>
     </span>
+    <% end %>
 
     <!-- Right side -->
     <div class="header-right header-menu">
       <%if user_signed_in? %>
         <span class="header-item">
           <a><%= link_to "Settings", edit_user_registration_path %></a>
-          <a class="button" data-method="DELETE" href=<%="#{destroy_user_session_path}"%>>Log out</a>
+          <a class="button is-outlined is-primary" data-method="DELETE" href=<%="#{destroy_user_session_path}"%>>Log out</a>
         </span>
       <% else %>
         <span class="header-item">
           <span class="header-item">
             <a><%= link_to "Sign Up", new_user_registration_path %></a>
           </span>
-          <a class="button" href=<%="#{new_user_session_path}"%>>Log in</a>
+          <a class="button is-outlined is-primary" href=<%="#{new_user_session_path}"%>>Log in</a>
         </span>
       <% end %>
     </div>
