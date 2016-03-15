@@ -1,8 +1,17 @@
+<% if @errors %>
+			<%= flash_message %>
+		<ul>
+			<% @errors.each do |error|%>
+			<li class=""><%= error %></li>
+			<% end %>
+		</ul>
+<% end %>
+
 <%= form_for [@user, @band] do |f| %>
 	<%= label_tag(:name, "Band name:", class:'title is-5') %>
 	<%=f.text_field :name, placeholder:"The Go-Betweens", class:"input is-margin-bottom" %>
 	<%= label_tag(:description, "Description:", class:'title is-5') %>
-	<%=f.text_field :description, placeholder:"Description (max. 250char.)", class:"textarea is-margin-bottom" %>
+	<%=f.text_field :description, placeholder:"Description (max. 500char.)", class:"textarea is-margin-bottom" %>
 	<%= label_tag(:cache, "Cache:", class:'title is-5') %>
 	<%= f.text_field :cache, placeholder:"1000", class:"input is-margin-bottom" %>
 	<%= label_tag(:image, "Profile Image:", class:'title is-5') %>

@@ -1,14 +1,14 @@
 <section class="hero is-left">
-  <div class="hero-content">
+  <div class="hero-content is-gradient">
     <div class="container is-fluid">
-      <h1 class="title">
+      <h1 class="title is-1 artist-page-title">
         <%=@band.name%>
       </h1>
     </div>
   </div>
 </section>
 <div class="container">
-  <div class="columns is-wrap">	
+  <div class="columns is-wrap is-columns-margin">	
   	<div class="column is-3">
   		<%= render 'menu'%>
   	</div>
@@ -20,7 +20,8 @@
         <p><%=@band.cache%> €</p>
       </div>
       <a class="button is-warning">Update</a>
-      <a class="button is-danger">Delete</a>
+      <a class="button is-danger" data-method="DELETE" data-confirm="Are you sure?" href=<%="#{user_band_path}"%>>Delete</a>
   	</div>
   </div>
 </div>
+

@@ -1,18 +1,54 @@
-// @import "bulma/layout/layout";
-// .header{
-// 	height:70px;
-// }
+@import "bulma/layout/layout";
 
-// .header-tab{
-// 	height:70px;
-// 	display:flex;
-// }
+/*Structures*/
+.is-wrap{
+	flex-wrap: wrap;
+}
 
-// .is-wrap{
-// 	flex-wrap: wrap;
-// }
+.is-columns-margin{
+	margin:20px 0;
+}
 
+/*Header*/
+.header{
+	height:70px;
+}
 
-// .menu{
-// 	border: 1px solid #F5BA06;
-// }
+.header-tab{
+	height:70px;
+	display:flex;
+	border-bottom: 3px solid transparent;
+}
+
+.header-tab:hover{
+	border-bottom: 3px solid $primary;
+	color: $primary;
+	i{
+		color:$primary;
+	}
+}
+
+.navbar-fixed {
+    top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+}
+
+.hamburger{
+	width:70px;
+	height:70px;
+	&:hover{
+		background-color: $primary;
+		i{
+			color: #fff;
+		}
+	}
+}
+
+/*Hero*/
+.hero{
+	&.is-fullheight{
+		min-height: calc(100vh - 70px);
+	}
+}

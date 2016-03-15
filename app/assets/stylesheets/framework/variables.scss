@@ -1,0 +1,16 @@
+@import "bulma/config/variables";
+
+$mustard-bright: #F5BA06;
+$primary: $mustard-bright;
+$family-sans-serif: "alwyn-new-rounded-web",sans-serif;
+
+.is-gradient{
+background: rgb(245, 186, 6);
+background: -moz-linear-gradient(30deg, rgb(245, 186, 6) 30%, rgb(243, 160, 2) 70%);
+background: -webkit-linear-gradient(30deg, rgb(245, 186, 6) 30%, rgb(243, 160, 2) 70%);
+background: -o-linear-gradient(30deg, rgb(245, 186, 6) 30%, rgb(243, 160, 2) 70%);
+background: -ms-linear-gradient(30deg, rgb(245, 186, 6) 30%, rgb(243, 160, 2) 70%);
+background: linear-gradient(120deg, rgb(245, 186, 6) 30%, rgb(243, 160, 2) 70%);
+}
+
+@import "bulma/config/generated-variables";

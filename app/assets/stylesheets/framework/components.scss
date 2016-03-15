@@ -1,0 +1,37 @@
+@import "bulma/components/components";
+@import "framework/sections";
+@import "framework/form";
+
+
+/*Buttons*/
+
+.is-outlined:hover{
+	background-color: $primary;
+}
+
+/*Card*/
+.card{
+	box-shadow: none;
+	transition: box-shadow 0.3s;
+	&:hover{
+		box-shadow:1px 0px 20px 0px rgba(50, 50, 50, 0.3);
+	}
+}
+
+.card-title-ellipsis{
+		width: 75%;
+		height:1.8rem;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  &:hover{
+	  	color: $primary;
+	  }
+}
+
+.card-text-ellipsis{}
+
+/*Menu*/
+.menu{
+	border: 1px solid #F5BA06;
+}

@@ -13,12 +13,13 @@ class BandsController < ApplicationController
 	def create
 		@user = current_user
 		@band = Band.new band_params
-		@band.set_user!(@user)
 		if @band.save
+			@band.set_user!(@user)
 			flash[:"is-success"] = "Rock on!You have created a new band"
 			redirect_to user_bands_path
 		else
-			flash[:"alert"] = "Oops!Something went wrong..."
+			@errors = @band.errors.full_messages
+			flash[:"is-alert"] = "Oops!Something went wrong..."
 			render 'new'
 		end
 	end
@@ -26,6 +27,13 @@ class BandsController < ApplicationController
 	def show
 		@user = current_user
 		@band = @user.bands.find_by id: params[:id]
+	end
+
+	def destroy
+		@user = current_user
+		band = @user.bands.find_by id: params[:id]
+		band.destroy
+		redirect_to user_bands_path
 	end
 
 	private

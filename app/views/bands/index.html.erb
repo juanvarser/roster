@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="columns is-wrap">
+	<div class="columns is-wrap is-columns-margin">
 		<div class="column is-11">
 	      <div class="heading">
 	        <h1 class="title">Bands</h1>
@@ -8,6 +8,7 @@
 	  <div class="column is-1">
 			<a class="button is-primary" href=<%="#{new_user_band_path}"%>><i class="fa fa-plus"></i></a>
 	  </div>
+	  
 		<% @bands.each do |band| %>
 			<div class="column is-4">
 			<div class="card">
@@ -17,14 +18,15 @@
 			  <div class="card-content">
 			    <div class="media">
 			      <div class="media-content">
-			        <a href="<%=user_band_path(user_id:@user.id, id:band.id)%>"><p class="title is-4 is-text-bold"><%= band.name %></p></a>
+			        <a href="<%=user_band_path(user_id:@user.id, id:band.id)%>">
+			        	<p class="title is-4 is-text-bold card-title-ellipsis"><%= band.name %></p>
+			        </a>
 			      </div>
 			    </div>
 
 			    <div class="content">
-			      <p><%=band.description%></p>
+			      <p class="card-text-ellipsis"><%=band.description%></p>
 			      <br>
-			      <small>
 			      	<div class="columns is-text-centered">
 			      	<div class="column">
 			      		<a href="<%=user_band_path(user_id:@user.id, id:band.id)%>"><i class="fa fa-cog"></i></a>
@@ -39,8 +41,6 @@
 			      		<a href="<%=user_band_finances_path(band_id:band.id)%>"><i class="fa fa-balance-scale"></i></a>
 			      	</div>
 			      </div>
-			      </small>
-
 			    </div>
 			  </div>
 			</div>

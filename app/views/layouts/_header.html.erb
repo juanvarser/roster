@@ -22,18 +22,20 @@
     <% end %>
 
     <!-- Right side -->
-    <div class="header-right header-menu">
+    <div class="header-right header-menu is-pulled-right">
       <%if user_signed_in? %>
         <span class="header-item">
           <a><%= link_to "Settings", edit_user_registration_path %></a>
+        </span>
+        <span class="header-item">
           <a class="button is-outlined is-primary" data-method="DELETE" href=<%="#{destroy_user_session_path}"%>>Log out</a>
         </span>
       <% else %>
         <span class="header-item">
-          <span class="header-item">
-            <a><%= link_to "Sign Up", new_user_registration_path %></a>
-          </span>
-          <a class="button is-outlined is-primary" href=<%="#{new_user_session_path}"%>>Log in</a>
+          <a><%= link_to "Sign Up", new_user_registration_path %></a>
+        </span>
+        <span class="header-item">
+          <a class="button is-primary" href=<%="#{new_user_session_path}"%>>Log in</a>
         </span>
       <% end %>
     </div>
