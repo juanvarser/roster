@@ -5,4 +5,10 @@ class UsersController < ApplicationController
 		@user = current_user
 		render 'users/show'
 	end
+
+	def all_bands_events
+		@user = current_user
+		@bands = @user.bands
+		@events = Event.all.order(date: :asc).to_a
+	end
 end

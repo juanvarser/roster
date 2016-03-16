@@ -5,7 +5,7 @@
         <%=@band.name%>
       </h1>
       <h3 class="title is-3 artist-page-title">
-      	<%= get_venue_name(@event.venue_id) %>
+      	<%= get_venue(@event.venue_id).name %>
       </h3>
     </div>
   </div>

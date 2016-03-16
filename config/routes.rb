@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       end
     end
     resources :venues, only: [:index, :new, :create,:show, :edit,:update, :destroy]
+
+  get 'all_bands_events', :to => 'users#all_bands_events'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
