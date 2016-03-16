@@ -16,7 +16,10 @@
 	</p>
 	<p class="control">
 	<%= label_tag(:price, "Price:", class:'title is-5') %>
-	<%=f.text_field :price, placeholder:"20", class:"input is-margin-bottom" %>
+	<%=f.text_field :price, placeholder:"20", class:"input" %>
+	</p>
+	<p class="control">
+	<%= f.file_field :image, class:"input" %>
 	</p>
 	<hr>
 	<div class="columns">

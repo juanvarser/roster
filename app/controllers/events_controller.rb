@@ -2,7 +2,6 @@ class EventsController < ApplicationController
 	
 	def index
 		@user = current_user
-		@venue = @user.venues.all
 		@band = @user.bands.find_by user_id: params[:user_id], id: params[:band_id]
 		@events = @band.events.all
 	end
@@ -17,6 +16,8 @@ class EventsController < ApplicationController
 	def create
 		@user = current_user
 		@band = @user.bands.find_by user_id: params[:user_id], id: params[:band_id]
+		venue = Venue.find params[:event][:venue_id]
+		params[:event][:venue] = venue
 		@event = Event.new event_params
 		if @event.save
 			@event.set_band!(@band)
@@ -31,7 +32,7 @@ class EventsController < ApplicationController
 
 	private
 	def event_params
-		params.require(:event).permit(:price,:date,:time,:venue_id)
+		params.require(:event).permit(:price,:date,:time,:image,:venue_id)
 	end
 
 end

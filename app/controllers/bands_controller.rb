@@ -2,7 +2,7 @@ class BandsController < ApplicationController
 
 	def index
 		@user = current_user
-		@bands = Band.all
+		@bands = @user.bands
 	end
 
 	def new

@@ -2,18 +2,24 @@
 	<div class="card">
 	  <div class="card-image">
 	    <figure class="image is-4by3">
-	      <img src="http://placehold.it/300x225" alt="">
+	      <a href="<%=user_band_event_path(user_id:@user.id, band_id:@band.id, id: event.id) %>">
+	      	<%= image_tag event.image %>
+	      </a>
 	    </figure>
-	    <div class="event-date">
-				<p class="title is-6"><%= event.date.strftime("%e %b") %></p>
+	    <div class="event-date is-text-centered is-lighter-color">
+				<p class="title is-5 is-text-bold"><%= event.date.strftime("%e %b") %></p>
 				<p class="subtitle is-6"><%= event.time.strftime("%H:%M h") %></p>
 	    </div>
 	  </div>
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="title is-4 is-text-bold card-title-ellipsis">Venue name</p>
-        <p class="subtitle is-6"><%= @band.name %></p>
+      	<a href="<%=user_band_event_path(user_id:@user.id, band_id:@band.id, id: event.id) %>">
+        	<p class="title is-4 is-text-bold card-title-ellipsis">
+        		<%= get_venue_name(event.venue_id) %>
+        	</p>
+        </a>
+        <p class="subtitle is-6"><%= get_venue_address(event.venue_id) + ', ' + get_venue_city(event.venue_id) %></p>
         <p class="content">Tickets: <%= event.price %>€</p>
       </div>
    	</div>
