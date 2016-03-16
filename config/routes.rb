@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :bands, only: [:index, :new, :create,:show, :edit,:update, :destroy] do
       resources :products, only: [:index, :new, :create,:edit,:update, :destroy]
-      resources :events, only: [:index, :new, :create,:edit,:update, :destroy]
-      resources :finances, only: [:index, :new, :create,:edit,:update, :destroy]
+      resources :events, only: [:index,:show, :new, :create,:edit,:update, :destroy] do
+        resources :finances, only: [:index, :new, :create,:edit,:update, :destroy]
+      end
     end
     resources :venues, only: [:index, :new, :create,:show, :edit,:update, :destroy]
   end

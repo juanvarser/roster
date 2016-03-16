@@ -1,0 +1,22 @@
+<div class="column is-4">
+	<div class="card">
+	  <div class="card-image">
+	    <figure class="image is-4by3">
+	      <img src="http://placehold.it/300x225" alt="">
+	    </figure>
+	    <div class="event-date">
+				<p class="title is-6"><%= event.date.strftime("%e %b") %></p>
+				<p class="subtitle is-6"><%= event.time.strftime("%H:%M h") %></p>
+	    </div>
+	  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4 is-text-bold card-title-ellipsis">Venue name</p>
+        <p class="subtitle is-6"><%= @band.name %></p>
+        <p class="content">Tickets: <%= event.price %>€</p>
+      </div>
+   	</div>
+  </div>
+</div>
+</div>

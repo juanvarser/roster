@@ -6,3 +6,12 @@
 .is-text-bold{
 	font-weight:800;
 }
+
+/*buttons*/
+.is-halfwidth{
+	margin-right: 15px;
+	width: 50%;
+	&:last-child{
+		margin-right:0;
+	}
+}

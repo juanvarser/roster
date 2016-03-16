@@ -1,0 +1,49 @@
+<% if @errors %>
+			<%= flash_message %>
+		<ul>
+			<% @errors.each do |error|%>
+			<li class=""><%= error %></li>
+			<% end %>
+		</ul>
+<% end %>
+
+<%= form_for [@user, @band, @event] do |f| %>
+	<p class="control">
+	<%= label_tag(:price, "Venue:", class:'title is-5') %>
+	</p>
+	<p class="control">
+	<%= f.collection_select :venue_id, Venue.all,:id,:name, {prompt: "Select a venue"}, {class: 'input select'} %>
+	</p>
+	<p class="control">
+	<%= label_tag(:price, "Price:", class:'title is-5') %>
+	<%=f.text_field :price, placeholder:"20", class:"input is-margin-bottom" %>
+	</p>
+	<hr>
+	<div class="columns">
+		<div class="column">
+			<p class="control">
+				<%= label_tag(:date, "Date:", class:'title is-5') %>
+				<%=f.date_field :date, class:'input' %>
+			</p>
+		</div>
+			<div class="column">
+				<p class="control">
+					<%= label_tag(:time, "Time:", class:'title is-5') %>
+					<%= f.time_field :time, class:'input' %>
+				</p>
+			</div>
+		</div>
+	<hr>
+	<div class="columns">
+		<div class="column">
+			<p class="control">
+				<%= f.submit 'Create', class:"button is-primary is-fullwidth" %>
+			</p>
+		</div>
+		<div class="column">
+			<p class="control">
+			<%= f.submit 'Cancel', class:"button is-outlined is-danger is-fullwidth" %>
+			</p>
+		</div>
+	</div>
+<% end %>
