@@ -1,6 +1,6 @@
 <nav class="menu">
-  <p class="menu-heading">
-    Lorem ipsum
+  <p class="is-4x3 image-border-radius">
+    <%= image_tag @band.image %>
   </p>
   <a class="menu-block is-active" href="<%=user_band_path(user_id:@user.id, id:@band.id)%>">
     <span class="menu-icon">

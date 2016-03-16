@@ -9,19 +9,18 @@
 </section>
 <div class="container">
   <div class="columns is-wrap is-columns-margin">	
-  	<div class="column is-3">
+  	<div class="column is-4">
   		<%= render 'menu'%>
+      <a class="button is-warning">Update</a>
+      <a class="button is-danger" data-method="DELETE" data-confirm="Are you sure?" href=<%="#{user_band_path}"%>>Delete</a>
   	</div>
-  	<div class="column is-9">
+  	<div class="column is-8">
   		<div class="content">
         <h1>Description</h1>
         <p><%=@band.description%></p>
         <h1>Cache</h1>
         <p><%=@band.cache%> €</p>
       </div>
-      <a class="button is-warning">Update</a>
-      <a class="button is-danger" data-method="DELETE" data-confirm="Are you sure?" href=<%="#{user_band_path}"%>>Delete</a>
   	</div>
   </div>
 </div>
-

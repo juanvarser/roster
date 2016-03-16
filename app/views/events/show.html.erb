@@ -12,13 +12,63 @@
 </section>
 <div class="container">
   <div class="columns is-wrap is-columns-margin">	
-  	<div class="column is-5">
+  	<div class="column is-4">
   		<p class="image">
   			<%= image_tag @event.image %>
   		</p>
   	</div>
-  	<div class="column is-7">
-			<%= render 'eventstab' %>
+  	<div class="column is-8">
+	  		<div id="venue-tab" class="column">
+					<ul class="content">
+				    <li>
+				    	<strong>Venue: </strong><%=get_venue(@event.venue_id).name %>
+				    </li>
+				    <li>
+				    	<strong>Address: </strong>
+				    	<%=get_venue(@event.venue_id).address + ', ' + get_venue(@event.venue_id).city %>
+				    </li>
+				    <li>
+				    	<strong>Contact: </strong>
+				    	<%= get_venue(@event.venue_id).contact_name %>
+				    </li>
+						<li>
+				    	<strong>Phone Number: </strong>
+				    	<%= get_venue(@event.venue_id).phone || "Not phone number yet" %>
+				    </li>
+				    <li>
+				    	<strong>Email: </strong>
+				    	<%= get_venue(@event.venue_id).email || "Not email yet" %>
+				    </li>
+					</ul>
+				</div>
+				<hr>
+				<div id="finances-tab" class="column">
+					<table class="table">
+					  <thead>
+					    <tr>
+					      <th>Type</th>
+					      <th>Concept</th>
+					      <th>Amount</th>
+					      <th>Actions</th>
+					    </tr>
+					  </thead>
+					  <tfoot>
+					  <tbody>
+					    <tr>
+					      <td>Gasto</td>
+					      <td>Venue cache</td>
+					      <td>300€</td>
+					      <td class="table-link table-icon">
+					        <a href="#">
+					          <i class="fa fa-instagram"></i>
+					        </a>
+					      </td>
+					    </tr>
+					  </tbody>
+					</table>
+  			</div>
+  			<hr>
+  	</div>	
   	</div>
   </div>
  </div>
