@@ -11,18 +11,20 @@
 				<p class="subtitle is-6"><%= event.time.strftime("%H:%M h") %></p>
 	    </div>
 	  </div>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-content">
-      	<a href="<%=user_band_event_path(user_id:@user.id, band_id:@band.id, id: event.id) %>">
-        	<p class="title is-4 is-text-bold card-title-ellipsis">
-        		<%= get_venue_name(event.venue_id) %>
-        	</p>
-        </a>
-        <p class="subtitle is-6"><%= get_venue_address(event.venue_id) + ', ' + get_venue_city(event.venue_id) %></p>
-        <p class="content">Tickets: <%= event.price %>€</p>
-      </div>
-   	</div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+        	<a href="<%=user_band_event_path(user_id:@user.id, band_id:@band.id, id: event.id) %>">
+          	<p class="title is-4 is-text-bold card-title-ellipsis">
+          		<%= get_venue(event.venue_id).name %>
+          	</p>
+          </a>
+          <p class="subtitle is-6">
+            <%= get_venue(event.venue_id).address + ', ' + get_venue(event.venue_id).city %>
+          </p>
+          <p class="content">Tickets: <%= event.price %>€</p>
+        </div>
+     	</div>
+    </div>
   </div>
-</div>
 </div>

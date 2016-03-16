@@ -1,0 +1,63 @@
+<div class="container">
+	<div id="events-tab" class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li class="">
+        <a href="#venue-tab"><i class="fa fa-building-o"></i>Venue info</a>
+      </li>
+      <li class="">
+        <a href="#merchandise-tab"><i class="fa fa-archive"></i>Merchandise</a>
+      </li>
+      <li class="is-active">
+        <a href="#finances-tab"><i class="fa fa-balance-scale"></i>Finances</a>
+      </li>
+    </ul>
+  </div>
+  <div id="venue-tab">
+		<ul class="content">
+    <li>
+    	<strong>Venue: </strong><%=get_venue(@event.venue_id).name %>
+    </li>
+    <li>
+    	<strong>Address: </strong>
+    	<%=get_venue(@event.venue_id).address + ', ' + get_venue(@event.venue_id).city %>
+    </li>
+    <li>
+    	<strong>Contact: </strong>
+    	<%= get_venue(@event.venue_id).contact_name %>
+    </li>
+		<li>
+    	<strong>Phone Number: </strong>
+    	<%= get_venue(@event.venue_id).phone || "Not phone number yet" %>
+    </li>
+    <li>
+    	<strong>Email: </strong>
+    	<%= get_venue(@event.venue_id).email || "Not email yet" %>
+    </li>
+		</ul>
+  </div>
+  <div id="finances-tab">
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th>Type</th>
+		      <th>Concept</th>
+		      <th>Amount</th>
+		      <th>Actions</th>
+		    </tr>
+		  </thead>
+		  <tfoot>
+		  <tbody>
+		    <tr>
+		      <td>Gasto</td>
+		      <td>Venue cache</td>
+		      <td>300€</td>
+		      <td class="table-link table-icon">
+		        <a href="#">
+		          <i class="fa fa-instagram"></i>
+		        </a>
+		      </td>
+		    </tr>
+		  </tbody>
+		</table>
+  </div>
+</div>

@@ -13,6 +13,12 @@ class EventsController < ApplicationController
 		@event = @band.events.new
 	end
 
+	def show
+		@user = current_user
+		@band = @user.bands.find_by user_id: params[:user_id], id: params[:band_id]
+		@event = @band.events.find_by id: params[:id]
+	end
+
 	def create
 		@user = current_user
 		@band = @user.bands.find_by user_id: params[:user_id], id: params[:band_id]
