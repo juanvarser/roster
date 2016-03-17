@@ -2,27 +2,36 @@ class EventsController < ApplicationController
 	
 	def index
 		@user = current_user
-		@band = @user.bands.find_by user_id: current_user, id: params[:band_id]
+		@band = @user.bands.find_by id: params[:band_id]
 		@events = @band.events.all
 	end
 
 	def new
 		@user = current_user
 		@venue = @user.venues.all
-		@band = @user.bands.find_by user_id: current_user, id: params[:band_id]
+		@band = @user.bands.find_by id: params[:band_id]
 		@event = @band.events.new
 	end
 
 	def show
 		@user = current_user
-		@band = @user.bands.find_by user_id: current_user, id: params[:band_id]
+		@band = @user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:id]
 		@finance = Finance.new
 	end
 
+	def update
+		@user = current_user
+		@band = @user.bands.find_by id: params[:band_id]
+		@event = @band.events.find_by id: params[:id]
+		@event.event_completed
+		flash[:"is-success"] = "Great! You have generated a new report event"
+		redirect_to(:back)
+	end
+
 	def create
 		@user = current_user
-		@band = @user.bands.find_by user_id: params[:user_id], id: params[:band_id]
+		@band = @user.bands.find_by id: params[:band_id]
 		@event = Event.new event_params
 		if @event.save
 			@event.set_band!(@band)
@@ -36,11 +45,11 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
-		@user = current_user
-		@band = @user.bands.find_by id: params[:band_id]
-		@event = @band.events.find_by id: params[:event_id]
+		user = current_user
+		band = user.bands.find_by id: params[:band_id]
+		@event = band.events.find_by id: params[:id]
 		@event.destroy
-		redirect_to user_band_event_path id: params[:event_id]
+		redirect_to user_band_events_path
 	end
 
 	private

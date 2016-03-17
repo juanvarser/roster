@@ -10,5 +10,10 @@ class Event < ActiveRecord::Base
 		self.band_id = band.id
 		self.save!
 	end
+
+	def event_completed
+		self.completed = true
+		self.save
+	end
 	
 end

@@ -15,13 +15,13 @@
 //= require typekit
 //= require_tree .
 
-$(document).ready(function() {
-    $(window).scroll(function() {
-      var headerHeight = $('header').height();
-        if($(window).scrollTop() > headerHeight) {
-          $('header.header').addClass('navbar-fixed');
-        } else if($(window).scrollTop() < headerHeight) {
-          $('header.header').removeClass('navbar-fixed');
-        }
-    });
-});
+// $(document).ready(function() {
+//     $(window).scroll(function() {
+//       var headerHeight = $('header').height();
+//         if($(window).scrollTop() > headerHeight) {
+//           $('header.header').addClass('navbar-fixed');
+//         } else if($(window).scrollTop() < headerHeight) {
+//           $('header.header').removeClass('navbar-fixed');
+//         }
+//     });
+// });
