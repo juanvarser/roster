@@ -1,5 +1,6 @@
 class Band < ActiveRecord::Base
 	has_one :finance
+	has_one :member
 	has_many :products
 	has_many :events
 	belongs_to :user
