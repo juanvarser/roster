@@ -26,7 +26,7 @@ class EventsController < ApplicationController
 		@event = @band.events.find_by id: params[:id]
 		@event.event_completed
 		flash[:"is-success"] = "Great! You have generated a new report event"
-		redirect_to(:back)
+		redirect_to :back
 	end
 
 	def create
