@@ -1,13 +1,31 @@
 <div class="container">
-	<div class="columns is-wrap is-columns-margin">
+	<br>
+	<%= render 'navbar' %>
+
+	<div id="events-all" class="columns is-wrap is-columns-margin">
+	  <div class="column is-11">
+			 <h2 class="title is-5">All events:</h2>
+		</div>
+
+			<%= render partial: 'card', :collection=> @events, :as=> :event%>
+
+	</div>	
+
+  <div id="events-ontour" class="columns is-wrap is-columns-margin js-is-hidden">
+	  <div class="column is-11">
+			 <h2 class="title is-5">On Tour events:</h2>
+		</div>
+
+			<%= render partial: 'card', :collection=> @events.where(completed: false), :as=> :event%>
+
+	</div>
+
+	<div id="events-expired" class="columns is-wrap is-columns-margin js-is-hidden">
 		<div class="column is-11">
-	      <div class="heading">
-	        <h1 class="title"><%= @band.name%> events</h1>
-	      </div>
-	  </div>
-	  <div class="column is-1">
-			<a class="button is-primary" href=<%="#{new_user_band_event_path}"%>><i class="fa fa-plus"></i></a>
-	  </div>
-	  <%= render partial: 'card', :collection=> @events, :as=> :event%>
+			<h2 class="title is-5">Expired events:</h2>
+		</div>
+
+		<%= render partial: 'card', :collection=> @events.where(completed: true), :as=> :event%>
+	
 	</div>
 </div>

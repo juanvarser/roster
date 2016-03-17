@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	
+
 	def index
 		@user = current_user
 		@band = @user.bands.find_by id: params[:band_id]

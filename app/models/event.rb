@@ -15,5 +15,5 @@ class Event < ActiveRecord::Base
 		self.completed = true
 		self.save
 	end
-	
+
 end

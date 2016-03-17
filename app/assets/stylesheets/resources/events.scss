@@ -12,3 +12,13 @@
 	border: 3px solid $primary;
 	border-radius: $radius 0 0 $radius;
 }
+
+.js-is-hidden{
+	display:none !important;
+	// transition: display 0s, opacity 0.5s linear;
+}
+
+.is-active{
+	color: #000;
+	font-weight:800;
+}
