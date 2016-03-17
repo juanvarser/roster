@@ -13,9 +13,10 @@
 <div class="container">
   <div class="columns is-wrap is-columns-margin">	
   	<div class="column is-4">
-  		<p class="image">
+  		
   			<%= image_tag @event.image %>
-  		</p>
+  		
+      <a class="button is-danger is-fullwidth" data-method="DELETE" data-confirm="Are you sure?" href=<%="#{user_band_event_path}"%>>Delete</a>
   	</div>
   	<div class="column is-8">
 	  		<div id="venue-tab" class="column">
@@ -54,17 +55,9 @@
 					  </thead>
 					  <tfoot>
 					  <tbody>
-					    <tr>
-					      <td>Gasto</td>
-					      <td>Venue cache</td>
-					      <td>300€</td>
-					      <td class="table-link table-icon">
-					        <a href="#">
-					          <i class="fa fa-instagram"></i>
-					        </a>
-					      </td>
-					    </tr>
-					  </tbody>
+							<%= render partial:'finances/index', collection: get_finance(@event.id), as: :finance %>
+							<%= render 'finances/new' %>
+  					</tbody>
 					</table>
   			</div>
   			<hr>

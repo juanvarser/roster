@@ -12,7 +12,9 @@
 	<%= label_tag(:price, "Venue:", class:'title is-5') %>
 	</p>
 	<p class="control">
+		<span class="select is-fullwidth">
 	<%= f.collection_select :venue_id, Venue.all,:id,:name, {prompt: "Select a venue"}, {class: 'input select'} %>
+		</span>
 	</p>
 	<p class="control">
 	<%= label_tag(:price, "Price:", class:'title is-5') %>
