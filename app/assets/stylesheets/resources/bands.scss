@@ -19,13 +19,9 @@
 			margin: 0 15px;
 		}
 	}
-}
-
-.card-submenu i{
-	font-size:26px;
+	i{
+	font-size:18px;
 	text-shadow:1px 0px 20px 0px rgba(50, 50, 50, 1);
 	transition: color 0.3s;
-	&:hover{
-		color: #fff;
 	}
 }
