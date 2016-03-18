@@ -1,9 +1,9 @@
 <div class="column is-4">
 	<div class="card">
 	  <div class="card-image">
-	    <figure class="image is-4by3">
+	    <figure class="image">
 	      <a href="<%=user_band_event_path(user_id:@user.id, band_id:@band.id, id: event.id) %>">
-	      	<%= image_tag event.image %>
+	      	<%= image_tag event.image, class:"is-flexible-image" %>
 	      </a>
 	    </figure>
 	    <div class="event-date is-text-centered is-lighter-color">
