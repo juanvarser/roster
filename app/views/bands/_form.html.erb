@@ -8,13 +8,23 @@
 <% end %>
 
 <%= form_for [@user, @band] do |f| %>
-	<%= label_tag(:name, "Band name:", class:'title is-5') %>
-	<%=f.text_field :name, placeholder:"The Go-Betweens", class:"input is-margin-bottom" %>
-	<%= label_tag(:description, "Description:", class:'title is-5') %>
-	<%=f.text_field :description, placeholder:"Description (max. 500char.)", class:"textarea is-margin-bottom" %>
-	<%= label_tag(:cache, "Cache:", class:'title is-5') %>
-	<%= f.text_field :cache, placeholder:"1000", class:"input is-margin-bottom" %>
-	<%= label_tag(:image, "Profile Image:", class:'title is-5') %>
-	<%= f.file_field :image, class:"input is-margin-bottom" %>
-	<%= f.submit 'Save', class:"button is-primary is-fullwidth" %>
+	<p class="control">
+		<%= label_tag(:name, "Band name:", class:'title is-5') %>
+		<%=f.text_field :name, placeholder:"The Go-Betweens", class:"input" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:description, "Description:", class:'title is-5') %>
+		<%=f.text_field :description, placeholder:"Description (max. 500char.)", class:"textarea" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:cache, "Cache:", class:'title is-5') %>
+		<%= f.text_field :cache, placeholder:"1000", class:"input" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:image, "Profile Image:", class:'title is-5') %>
+		<%= f.file_field :image, class:"input" %>
+	</p>
+	<p class="control">
+		<%= f.submit 'Save', class:"button is-primary is-fullwidth" %>
+	</p>
 <% end %>

@@ -59,3 +59,9 @@
 		min-height: calc(100vh - 70px);
 	}
 }
+
+/*jQuery*/
+.js-is-hidden{
+	display:none !important;
+	// transition: display 0s, opacity 0.5s linear;
+}

@@ -2,6 +2,22 @@
 			<div class="card">
 			  <figure class="card-image is-4x3">
 			    <a href="<%=user_band_path(user_id:@user.id, id:band.id)%>"><%= image_tag band.image %></a>
+			    <div class="container card-submenu is-text-centered js-is-hidden">
+	      		<ul>
+		      		<li>
+		      			<a href="<%=user_band_path(user_id:@user.id, id:band.id)%>"><i class="fa fa-cog fa-2x"></i></a>
+		      		</li>
+		      		<li>
+		      		<a href="<%=user_band_events_path(user_id:@user.id, band_id:band.id)%>"><i class="fa fa-calendar-o"></i></a>
+		      		</li>
+		      		<li>
+		      		<a href="<%=user_band_products_path(band_id:band.id)%>"><i class="fa fa-archive"></i></a>
+		      		</li>
+		      		<li>
+		      		<a href="#"><i class="fa fa-balance-scale"></i></a>
+		      		</li>
+	      		</ul>
+	     		</div>
 			  </figure>
 			  <div class="card-content">
 			    <div class="media">
@@ -11,24 +27,8 @@
 			        </a>
 			      </div>
 			    </div>
-
 			    <div class="content">
 			      <p class="card-text-ellipsis"><%=band.description%></p>
-			      <br>
-			      	<div class="columns is-text-centered">
-			      	<div class="column">
-			      		<a href="<%=user_band_path(user_id:@user.id, id:band.id)%>"><i class="fa fa-cog"></i></a>
-			      	</div>
-			      	<div class="column">
-			      		<a href="<%=user_band_events_path(user_id:@user.id, band_id:band.id)%>"><i class="fa fa-calendar-o"></i></a>
-			      	</div>	
-			      	<div class="column">
-			      		<a href="<%=user_band_products_path(band_id:band.id)%>"><i class="fa fa-archive"></i></a>
-			      	</div>
-			      	<div class="column">
-			      		<a href="#"><i class="fa fa-balance-scale"></i></a>
-			      	</div>
-			      </div>
 			    </div>
 			  </div>
 			</div>

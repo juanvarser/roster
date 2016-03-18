@@ -9,38 +9,39 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
 
-        <div class="field">
+        <p class="control">
           <%= f.label :email, class:'title is-5' %><br />
-          <%= f.email_field :email, autofocus: true, class:"input is-margin-bottom" %>
-        </div>
+          <%= f.email_field :email, autofocus: true, class:"input" %>
+        </p>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <div class="field">
+        <p class="control">
           <%= f.label :password, class:'title is-5' %> <i>(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off", class:"input is-margin-bottom"  %>
-        </div>
+          <%= f.password_field :password, autocomplete: "off", class:"input"  %>
+        </p>
 
-        <div class="field">
+        <p class="control">
           <%= f.label :password_confirmation, class:'title is-5' %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off", class:"input is-margin-bottom"  %>
-        </div>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:"input"  %>
+        </p>
 
-        <div class="field">
+        <p class="control">
           <%= f.label :current_password, class:'title is-5' %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off", class:"input is-margin-bottom" %>
-        </div>
+          <%= f.password_field :current_password, autocomplete: "off", class:"input" %>
+        </p>
 
         <div class="actions">
-          <%= f.submit "Update", class:"button is-primary is-fullwidth is-margin-bottom" %>
+          <%= f.submit "Update", class:"button is-primary is-fullwidth" %>
         </div>
       <% end %>
-
+      <br>
       <h1 class="title is-text-centered">Cancel my account</h1>
-
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"button is-primary is-fullwidth" %></p>
+      <p class="control">
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"button is-primary is-fullwidth" %>
+      </p>
 
       <%= link_to "Back", :back %>
       </div>

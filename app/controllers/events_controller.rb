@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+	respond_to :json, :html
 
 	def index
 		@user = current_user
@@ -24,8 +25,15 @@ class EventsController < ApplicationController
 		@user = current_user
 		@band = @user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:id]
+		@finance = @event.finances.all.to_a
 		@event.event_completed
 		flash[:"is-success"] = "Great! You have generated a new report event"
+		{
+			user: @user.id,
+			band: @band,
+			event: @event,
+			finance: @finance
+		}
 		redirect_to :back
 	end
 

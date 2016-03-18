@@ -20,12 +20,24 @@
 	  white-space: nowrap;
 	  overflow: hidden;
 	  text-overflow: ellipsis;
+	  transition: color 0.3s;
 	  &:hover{
 	  	color: $primary;
 	  }
 }
-
-.card-text-ellipsis{}
+.card-text-ellipsis{
+	$font-size: 14px;
+	$line-height: 1.4;
+	$lines-to-show: 3;
+  display: -webkit-box;
+  max-width: 400px;
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ }
 
 /*Menu*/
 .menu{
