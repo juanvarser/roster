@@ -21,6 +21,10 @@
 		<%= f.text_field :cache, placeholder:"1000", class:"input" %>
 	</p>
 	<p class="control">
+		<%= label_tag(:comission, "Management Comission %:", class:'title is-5') %>
+		<%= f.text_field :comission, placeholder:"10", class:"input" %>
+	</p>
+	<p class="control">
 		<%= label_tag(:image, "Profile Image:", class:'title is-5') %>
 		<%= f.file_field :image, class:"input" %>
 	</p>
