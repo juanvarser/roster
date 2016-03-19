@@ -7,5 +7,4 @@ module EventsHelper
 	def get_finance event_id
 		Finance.all.where(event_id: event_id)
 	end
-
 end

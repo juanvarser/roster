@@ -26,12 +26,6 @@ class EventsController < ApplicationController
 		@band = @user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:id]
 		@finance = @event.finances.all.to_a
-		event_json = {
-			user: @user.id,
-			band: @band,
-			event: @event,
-			finance: @finance
-		}
 		redirect_to :back
 		flash[:"is-success"] = "Great! You have generated a new report event"
 	end
@@ -64,9 +58,12 @@ class EventsController < ApplicationController
 		@band = @user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:event_id]
 		@event.event_completed
+		payload = @event.finances.to_json
+		Event.generate_report(@band.id,@event.date,payload)
+
 		if @event.save
-		flash[:"is-success"] = "Rock on!You have closed this event"
-		redirect_to user_band_events_path
+			flash[:"is-success"] = "Rock on!You have closed this event"
+			redirect_to user_band_events_path
 		end
 	end
 

@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :band
 	has_one :venue
+	has_one :report
 	has_many :finances
 	has_attached_file :image
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
@@ -23,4 +24,11 @@ class Event < ActiveRecord::Base
 		where(completed: true).count
 	end
 
+	def self.generate_report(band,date,payload)
+		Report.create(
+			report_type: band,
+			report_date: date,
+			payload: payload
+			)
+	end
 end

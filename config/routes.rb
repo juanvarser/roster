@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :products, only: [:index, :new, :create,:edit,:update, :destroy]
       resources :events, only: [:index,:show, :new, :create,:edit,:update, :destroy] do
         resources :finances, only: [:index, :new, :create,:edit,:update, :destroy]
+        resources :reports, only: [:new,:create,:show]
         get 'close_event', :to => 'events#close_event'
       end
     end
