@@ -4,7 +4,7 @@ class Band < ActiveRecord::Base
 	has_many :products
 	has_many :events
 	belongs_to :user
-	has_attached_file :image
+	has_attached_file :image, :default_url => 'missing_:avatar.png'
 	validates :name, presence: true
 	validates :cache, numericality: true
 	validates :comission, numericality: true

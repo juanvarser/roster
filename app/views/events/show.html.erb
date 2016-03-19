@@ -1,12 +1,23 @@
 <section class="hero is-left">
   <div class="hero-content is-gradient">
     <div class="container is-fluid">
-      <h1 class="title is-1 artist-page-title">
-        <%=@band.name%>
-      </h1>
-      <h3 class="title is-3 artist-page-title">
-      	@<%= get_venue(@event.venue_id).name %>
-      </h3>
+    	<div class="columns">
+    		<div class="column is-1">
+    			<h1 class="title is-1 artist-page-title">
+		        <%=@event.date.strftime("%d")%>
+		      </h1>
+		      <h3 class="title is-3 artist-page-title">
+		      	<%= @event.date.strftime("%b") %>
+		      </h3>
+    		</div>
+    		<div class="column">
+		      <h1 class="title is-1 artist-page-title">
+		        <%=@band.name%>
+		      </h1>
+		      <h3 class="title is-3 artist-page-title">
+		      	@<%= get_venue(@event.venue_id).name %>
+		      </h3>
+		    </div>
     </div>
   </div>
 </section>
@@ -15,9 +26,9 @@
   	<div class="column is-4">
   		
   			<%= image_tag @event.image %>
- 			<% if @event.completed == false %>
+ 			<% if !@event.completed %>
  			<p class="control">
-				<a class="button is-success is-fullwidth" data-method="PATCH" data-confirm="Are you sure?" href=<%="#{user_band_event_path}"%>>
+				<a class="button is-success is-fullwidth" data-method="get" data-confirm="Are you sure?" href="<%= user_band_event_close_event_path(event_id: params[:id]) %>">
 	      	Close Event
 	      </a>
     	</p>
@@ -66,7 +77,7 @@
 					  <tfoot>
 					  <tbody>
 							<%= render partial:'finances/index', collection: get_finance(@event.id), as: :finance %>
-							<%if @event.completed == false %>
+							<%if !@event.completed %>
 								<%= render 'finances/new' %>
 							<% end %>
   					</tbody>

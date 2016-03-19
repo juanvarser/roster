@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	respond_to :json, :html
+	respond_to :json
 
 	def index
 		@user = current_user
@@ -26,15 +26,14 @@ class EventsController < ApplicationController
 		@band = @user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:id]
 		@finance = @event.finances.all.to_a
-		@event.event_completed
-		flash[:"is-success"] = "Great! You have generated a new report event"
-		{
+		event_json = {
 			user: @user.id,
 			band: @band,
 			event: @event,
 			finance: @finance
 		}
 		redirect_to :back
+		flash[:"is-success"] = "Great! You have generated a new report event"
 	end
 
 	def create
@@ -58,6 +57,17 @@ class EventsController < ApplicationController
 		@event = band.events.find_by id: params[:id]
 		@event.destroy
 		redirect_to user_band_events_path
+	end
+
+	def close_event
+		@user = current_user
+		@band = @user.bands.find_by id: params[:band_id]
+		@event = @band.events.find_by id: params[:event_id]
+		@event.event_completed
+		if @event.save
+		flash[:"is-success"] = "Rock on!You have closed this event"
+		redirect_to user_band_events_path
+		end
 	end
 
 	private

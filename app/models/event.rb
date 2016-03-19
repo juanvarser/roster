@@ -13,7 +13,14 @@ class Event < ActiveRecord::Base
 
 	def event_completed
 		self.completed = true
-		self.save
+	end
+
+	def self.on_tour
+		where(completed: false).count
+	end
+
+	def self.expired
+		where(completed: true).count
 	end
 
 end

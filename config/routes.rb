@@ -5,16 +5,19 @@ Rails.application.routes.draw do
   devise_for :users do
     get 'users/:id', to: 'users#show'
   end
+  
   resources :users do
     resources :bands, only: [:index, :new, :create,:show, :edit,:update, :destroy] do
       resources :products, only: [:index, :new, :create,:edit,:update, :destroy]
       resources :events, only: [:index,:show, :new, :create,:edit,:update, :destroy] do
         resources :finances, only: [:index, :new, :create,:edit,:update, :destroy]
+        get 'close_event', :to => 'events#close_event'
       end
     end
     resources :venues, only: [:index, :new, :create,:show, :edit,:update, :destroy]
 
   get 'all_bands_events', :to => 'users#all_bands_events'
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

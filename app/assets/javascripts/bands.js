@@ -1,7 +1,3 @@
-var eventAnimation = function(){
-
-}
-
 var handlerCardIn = function(){
 		var $this = $(this);
 		$this.find('.card-title-ellipsis').addClass('is-primary-color');
