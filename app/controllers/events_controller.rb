@@ -36,6 +36,11 @@ class EventsController < ApplicationController
 		@event = Event.new event_params
 		if @event.save
 			@event.set_band!(@band)
+			if @event.event_type == 'band_cache'
+				Event.add_band_cache_to_finances(@event.id,@band.cache)
+			end
+
+			Event.add_venue_cache_to_finances(@event.id,@event.venue_id)
 			flash[:"is-success"] = "Rock on!You have created a new event"
 			redirect_to user_band_events_path
 		else
@@ -74,7 +79,7 @@ class EventsController < ApplicationController
 
 	private
 	def event_params
-		params.require(:event).permit(:price,:date,:time,:image,:venue_id)
+		params.require(:event).permit(:price,:date,:time,:image,:venue_id,:event_type)
 	end
 
 end

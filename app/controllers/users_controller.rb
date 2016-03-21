@@ -7,7 +7,10 @@ class UsersController < ApplicationController
 	end
 
 	def all_bands_events
-		@user = current_user
-		@events = Event.all.order(date: :asc).to_a
+		bands = current_user.bands.to_a
+		@events = []
+		bands.each do |band|
+			@events << band.events.all
+		end
 	end
 end

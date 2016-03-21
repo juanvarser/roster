@@ -17,8 +17,8 @@ var handleReport = function(result){
 			var total = 0;
 			event.payload[0].forEach(function appendData(value){
 			total += value.amount;
-			receive.push(total);
 			});
+            receive.push(total);
 		});
 		return receive;
 	};
@@ -29,8 +29,8 @@ var handleReport = function(result){
 			var total = 0;
 			event.payload[1].forEach(function appendData(value){
 				total += value.amount;
-				receive.push(total);
 			});
+            receive.push(total);
 		});
 		return receive;
 	};
@@ -111,7 +111,50 @@ var handleReport = function(result){
 	};
 
 	var ctx = document.getElementById("myChart").getContext("2d");
-	var myLineChart = new Chart(ctx).Line(data, options);	
+	var myLineChart = new Chart(ctx).Line(data, options);
+
+    var appendTable = function(){
+
+        result.events.forEach(function appendLabels(event){
+
+            var getReceive = function(){
+                var receive = [];
+                    var total = 0;
+                    event.payload[0].forEach(function appendData(value){
+                        total += value.amount;
+                    });
+                    receive.push(total);
+                return receive;
+                };
+
+            var getExpense = function(){
+                var receive = [];
+                    var total = 0;
+                    event.payload[1].forEach(function appendData(value){
+                        total += value.amount;
+                    });
+                    receive.push(total);
+                return receive;
+                };
+
+            var getCommission = function(){ 
+                return (getReceive() - getExpense()) * (result.management_comission / 100)
+            };
+
+            var html = [
+                '<tr>',
+                    '<td>' + event.event_date + '</td>',
+                    '<td>' + getReceive() + '</td>',
+                    '<td>' + getExpense() + '</td>',
+                    '<td>' + getCommission() + '</td>',
+                '</tr>'
+            ].join('\n');   
+                            
+            $('#event-table-report').append(html);
+
+        });
+
+    }();
 
 };
 
@@ -120,6 +163,7 @@ $(document).on('ready', function(){
 	var api_resource = window.location.pathname.split("/");
 
 	$.ajax({
+        data: 'GET',    
 		url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events_report',
 		success: handleReport,
 		error: handleErrorReport,

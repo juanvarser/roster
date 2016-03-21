@@ -32,4 +32,28 @@ class Event < ActiveRecord::Base
 			event_id: event
 			)
 	end
+
+	def self.add_venue_cache_to_finances(id,venue_id)
+		Finance.create(
+			concept:"Venue Cache",
+			concept_type: "Expense",
+			amount: get_venue_cache(venue_id),
+			event_id: id
+			)
+	end
+
+	def self.get_venue_cache(id)
+		venue = Venue.find_by id: id
+		venue.cache
+	end
+
+	def self.add_band_cache_to_finances(id,band_cache)
+		Finance.create(
+			concept:"Band Cache",
+			concept_type: "Receive",
+			amount: band_cache,
+			event_id: id
+			)
+	end
+
 end

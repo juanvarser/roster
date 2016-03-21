@@ -17,11 +17,21 @@
 		</span>
 	</p>
 	<p class="control">
-	<%= label_tag(:price, "Price:", class:'title is-5') %>
-	<%=f.text_field :price, placeholder:"20", class:"input" %>
+		<%= label_tag(:price, "Price:", class:'title is-5') %>
+		<%=f.text_field :price, placeholder:"20", class:"input" %>
 	</p>
+	<hr>
 	<p class="control">
-	<%= f.file_field :image, class:"input" %>
+		<%= label_tag(:price, "Event Type:", class:'title is-5') %><br>
+		<%= f.radio_button(:event_type, "band_cache") %>
+		<%= label_tag(:event_type, "Band Cache") %>
+		<%= f.radio_button(:event_type, "box_office") %>
+		<%= label_tag(:event_type, "Box Office Event") %>
+	</p>
+	<hr>
+	<p class="control">
+		<%= label_tag(:price, "Event Poster:", class:'title is-5') %>
+		<%= f.file_field :image, class:"input" %>
 	</p>
 	<hr>
 	<div class="columns">
