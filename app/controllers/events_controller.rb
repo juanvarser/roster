@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 	def index
 		@user = current_user
 		@band = @user.bands.find_by id: params[:band_id]
-		@events = @band.events.all
+		@events = @band.events.all.order(date: 'ASC')
 	end
 
 	def new
@@ -58,8 +58,13 @@ class EventsController < ApplicationController
 		@band = @user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:event_id]
 		@event.event_completed
-		payload = @event.finances.to_json
-		Event.generate_report(@band.id,@event.date,payload)
+		
+		payload = [
+			@event.finances.where(concept_type: "Receive"),
+			@event.finances.where(concept_type: "Expense")
+		]
+
+		Event.generate_report(@event.id,@event.date,payload.to_json)
 
 		if @event.save
 			flash[:"is-success"] = "Rock on!You have closed this event"

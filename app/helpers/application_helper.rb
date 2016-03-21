@@ -6,7 +6,7 @@ module ApplicationHelper
 
 	private
 
-	def show_message(type)
+	def show_message type
 		if flash[type]
 			content_tag :div, class:["notification is-container-margin ", type] do
 				content_tag :p do

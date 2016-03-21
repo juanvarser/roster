@@ -24,11 +24,12 @@ class Event < ActiveRecord::Base
 		where(completed: true).count
 	end
 
-	def self.generate_report(band,date,payload)
+	def self.generate_report(event,date,payload)
 		Report.create(
-			report_type: band,
+			report_type: event,
 			report_date: date,
-			payload: payload
+			payload: payload,
+			event_id: event
 			)
 	end
 end

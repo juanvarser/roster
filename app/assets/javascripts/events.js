@@ -1,4 +1,5 @@
 $(document).on('ready', function(){
+
 	var eventsAll = $("a[js-data='events-all']").on('click', function(){
 		$(this).addClass('is-active');
 		$("div[id='events-all']").removeClass('js-is-hidden');
@@ -31,3 +32,4 @@ $(document).on('ready', function(){
 	});
 
 })
+

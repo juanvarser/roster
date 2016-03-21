@@ -13,7 +13,7 @@
 	</p>
 	<p class="control">
 		<span class="select is-fullwidth">
-	<%= f.collection_select :venue_id, Venue.all,:id,:name, {prompt: "Select a venue"}, {class: 'input select'} %>
+	<%= f.collection_select :venue_id, current_user.venues.all,:id,:name, {prompt: "Select a venue"}, {class: 'input select'} %>
 		</span>
 	</p>
 	<p class="control">

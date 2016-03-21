@@ -1,0 +1,19 @@
+<section class="hero is-left">
+  <div class="hero-content is-gradient">
+    <div class="container is-fluid">
+      <h1 class="title is-1 artist-page-title">
+        <%=@band.name%> Finances
+      </h1>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="columns is-wrap is-columns-margin">	
+
+	<div class="column">
+		<h1 class="title is-3">Events Revenue:</h1>
+		<canvas id="myChart" width="960" height="400"></canvas>
+		<hr>
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
