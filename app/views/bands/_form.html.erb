@@ -9,7 +9,7 @@
 		</ul>
 <% end %>
 
-<%= form_for [@user, @band] do |f| %>
+<%= form_for [current_user, @band] do |f| %>
 	<p class="control">
 		<%= label_tag(:name, "Band name:", class:'title is-5') %>
 		<%=f.text_field :name, placeholder:"The Go-Betweens", class:"input" %>

@@ -6,8 +6,7 @@ class BandsController < ApplicationController
 	end
 
 	def new
-		@user = current_user
-		@band = @user.bands.new
+		@band = current_user.bands.new
 	end
 
 	def create

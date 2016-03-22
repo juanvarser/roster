@@ -16,8 +16,4 @@ RSpec.describe "routes", :type => :routing do
   it "routes to User>Band>Merchandise" do
   	expect(get(user_band_products_path(:user_id=>"7",:band_id=>"15"))).to route_to(:controller=>"products", :action=>"index", :user_id=>"7", :band_id=>"15")
   end
-
-  it "routes to User>Band>Finances" do
-  	expect(get(user_band_finances_path(:user_id=>"7",:band_id=>"15"))).to route_to(:controller=>"finances", :action=>"index", :user_id=>"7", :band_id=>"15")
-  end
 end

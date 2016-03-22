@@ -1,7 +1,50 @@
+<section class="hero is-left">
+  <div class="hero-band-background is-hero-band-image" style="background-image:url(<%= @band.image.url %>")></div>
+  <div class="hero-band-background is-hero-band-gradient is-gradient"></div>
+  <div class="hero-content">
+    <div class="container is-fluid">
+      <h1 class="title is-1 artist-page-title">
+        <%=@band.name%> merchandise
+      </h1>
+    </div>
+  </div>
+  <%= render 'bands/menu' %>
+</section>
 <div class="container">
   <div class="columns is-wrap is-columns-margin">	
   	<div class="column">
-  		<h1>Description</h1>
+  		<table class="table">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @products.each do |product| %>
+    <tr>
+      <td>
+      	<p class="image is-64x64">
+  				<img src="<%= product.image.url %>">
+				</p>
+			</td>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td>Counter</td>
+      <td class="table-link table-icon">
+    		<%= link_to user_band_product_path(band_id: @band.id ,
+    		id: product.id), method: :delete, data: {confirm: 'Are you sure?'} do %>
+			<i class="fa fa-trash"></i>
+		<% end %>
+  </td>
+    </tr>
+    <% end %>
+    <%= render 'new' %>
+  </tbody>
+</table>
   	</div>
   </div>
 </div>

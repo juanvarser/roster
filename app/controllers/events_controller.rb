@@ -14,10 +14,9 @@ class EventsController < ApplicationController
 	end
 
 	def show
-		@user = current_user
-		@band = @user.bands.find_by id: params[:band_id]
+		@band = current_user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:id]
-		@finance = Finance.new
+		@finance = @event.finances.new
 	end
 
 	def update
@@ -26,7 +25,7 @@ class EventsController < ApplicationController
 		@event = @band.events.find_by id: params[:id]
 		@finance = @event.finances.all.to_a
 		redirect_to :back
-		flash[:"is-success"] = "Great! You have generated a new report event"
+		flash[:"is-success"] = "Great! You have updated a new report event"
 	end
 
 	def create
@@ -72,6 +71,13 @@ class EventsController < ApplicationController
 			flash[:"is-success"] = "Rock on!You have closed this event"
 			redirect_to user_band_events_path
 		end
+	end
+
+	def get_event_info
+		band = current_user.bands.find_by id: params[:band_id]
+		event = band.events.find_by id: params[:event_id]
+		render status: 200, json: event.to_json
+
 	end
 
 	private

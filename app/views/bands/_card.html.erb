@@ -10,10 +10,10 @@
 		      			<a class="button is-primary" href="<%=user_band_path(user_id:@user.id, id:band.id)%>"><i class="fa fa-cog fa-2x"></i></a>
 		      		</li>
 		      		<li>
-		      		<a class="button is-primary" href="<%=user_band_events_path(user_id:@user.id, band_id:band.id)%>"><i class="fa fa-calendar-o"></i></a>
+		      		<a class="button is-primary" href="<%=user_band_products_path(band_id:band.id)%>"><i class="fa fa-archive"></i></a>
 		      		</li>
 		      		<li>
-		      		<a class="button is-primary" href="<%=user_band_products_path(band_id:band.id)%>"><i class="fa fa-archive"></i></a>
+		      		<a class="button is-primary" href="<%=user_band_events_path(user_id:@user.id, band_id:band.id)%>"><i class="fa fa-calendar-o"></i></a>
 		      		</li>
 		      		<li>
 		      		<a class="button is-primary" href="<%= user_band_events_stats_path(band_id:band.id) %>"><i class="fa fa-balance-scale"></i></a>

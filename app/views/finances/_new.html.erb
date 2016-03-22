@@ -1,4 +1,4 @@
-<%= form_for [@user, @band, @event, @finance] do |f| %>
+<%= form_for [current_user, @band, @event, @finance] do |f| %>
   <tr>
     <td><span class="select"><%=f.select :concept_type, ["Receive", "Expense"], class:"input" %></span></td>
     <td><%=f.text_field :concept, placeholder:"Crew Buy out", class:"input" %></td>

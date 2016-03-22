@@ -12,7 +12,9 @@ Rails.application.routes.draw do
       resources :events, only: [:index,:show, :new, :create,:edit,:update, :destroy] do
         resources :finances, only: [:index, :new, :create,:edit,:update, :destroy]
         get 'close_event', :to => 'events#close_event'
+        get 'event_info', :to => 'events#get_event_info'
       end
+
       resources :reports, only: [:new,:create,:show]
       get 'events_report', :to => 'reports#events_report'
       get 'events_stats', :to => 'reports#events_stats'

@@ -1,4 +1,25 @@
+var handleErrorEvent = function(){
+	console.log('ERROR')
+};
+var handleEvent = function(event){
+	if(event.completed == true){
+		$('a[controller=finances]').addClass('is-disabled');
+		$('a[controller=finances]').addClass('is-lighter-color')
+	}
+};
+
+
 $(document).on('ready', function(){
+
+	var base_url = window.location.host;
+	var api_resource = window.location.pathname;
+	$.ajax({
+    method: 'GET',    
+		url: 'http://' + base_url + api_resource + '/event_info',
+		success: handleEvent,
+		error: handleErrorEvent,
+		dataType: 'json'
+	});
 
 	var eventsAll = $("a[js-data='events-all']").on('click', function(){
 		$(this).addClass('is-active');
@@ -27,9 +48,7 @@ $(document).on('ready', function(){
 		$("div[id='events-all']").addClass('js-is-hidden');
 		$("div[id='events-ontour']").addClass('js-is-hidden');
 		$("a[js-data='events-all']").removeClass('is-active');
-		$("a[js-data='events-ontour']").removeClass('is-active');
-		
+		$("a[js-data='events-ontour']").removeClass('is-active');	
 	});
-
 })
 

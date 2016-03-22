@@ -15,10 +15,20 @@ var handlerCardOut = function(){
 
 };
 
+var setNavigation = function() {
+  	$("#tab_menu a").each(function() {   
+    	if (this.href == window.location.href) {
+        $(this).closest('li').addClass("is-active");
+    	}
+		});
+	};
+
 $(document).on('ready', function(){
 
 	var HandleCardListener = function(){
 		$('.card').hover(handlerCardIn,handlerCardOut);
 	}();
+
+	setNavigation();
 
 });

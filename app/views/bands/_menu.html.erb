@@ -1,29 +1,20 @@
-<nav class="menu">
-  <p class="is-4x3 image-border-radius">
-    <%= image_tag @band.image %>
-  </p>
-  <a class="menu-block is-active" href="<%=user_band_path(user_id:@user.id, id:@band.id)%>">
-    <span class="menu-icon">
-      <i class="fa fa-cog"></i>
-    </span>
-    Profile
-  </a>
-  <a class="menu-block" href="<%=user_band_events_path(band_id:@band.id)%>">
-    <span class="menu-icon">
-      <i class="fa fa-calendar-o"></i>
-    </span>
-    Events
-  </a>
-  <a class="menu-block" href="<%=user_band_products_path(band_id:@band.id)%>">
-    <span class="menu-icon">
-      <i class="fa fa-archive"></i>
-    </span>
-    Merchandise
-  </a>
-  <a class="menu-block" href="<%= user_band_events_stats_path(band_id:@band.id) %>">
-    <span class="menu-icon">
-      <i class="fa fa-balance-scale"></i>
-    </span>
-    Finances
-  </a>
-</nav>
+<div class="hero-footer">
+  <nav class="tabs is-boxed">
+    <div class="container is-fluid">
+      <ul id="tab_menu">
+        <li>
+          <a href="<%= user_band_path(user_id: current_user.id, id: @band.id) %>">Profile</a>
+        </li>
+        <li>
+          <a href="<%= user_band_products_path(user_id: current_user.id, band_id: @band.id) %>">Merchandise</a>
+        </li>
+        <li>
+          <a href="<%= user_band_events_path(user_id: current_user.id, band_id: @band.id) %>">Events</a>
+        </li>
+        <li>
+          <a href="<%= user_band_events_stats_path(user_id: current_user.id, band_id: @band.id) %>">Finances</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

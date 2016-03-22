@@ -160,6 +160,7 @@ var handleReport = function(result){
 };
 
 $(document).on('ready', function(){
+    
 	var base_url = window.location.host;
 	var api_resource = window.location.pathname.split("/");
 

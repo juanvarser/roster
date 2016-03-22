@@ -3,7 +3,8 @@
   <td><%= finance.concept %></td>
   <td><%= finance.amount %></td>
   <td class="table-link table-icon">
-    <%= link_to user_band_event_finance_path(event_id: @event.id ,id: finance.id),controller: :finances, method: :delete, data: {confirm: 'Are you sure?'} do%>
+    <%= link_to user_band_event_finance_path(event_id: @event.id ,id: finance.id),
+    controller: :finances, method: :delete, data: {confirm: 'Are you sure?'} do %>
 			<i class="fa fa-trash"></i>
 		<% end %>
   </td>
