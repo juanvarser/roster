@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
   	end
   end
 
+  def after_sign_in_path_for(resource)
+    user_bands_path user_id: current_user.id
+  end
+
   protected
 
   def configure_permitted_parameters

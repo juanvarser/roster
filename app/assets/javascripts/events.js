@@ -9,6 +9,7 @@ var handleEvent = function(event){
 };
 
 
+
 $(document).on('ready', function(){
 
 	var base_url = window.location.host;
@@ -27,6 +28,7 @@ $(document).on('ready', function(){
 
 		$("div[id='events-ontour']").addClass('js-is-hidden');
 		$("div[id='events-expired']").addClass('js-is-hidden');
+		$('#events-title').text('All Events');
 		$("a[js-data='events-ontour']").removeClass('is-active');
 		$("a[js-data='events-expired']").removeClass('is-active');
 	});
@@ -37,6 +39,7 @@ $(document).on('ready', function(){
 
 		$("div[id='events-all']").addClass('js-is-hidden');
 		$("div[id='events-expired']").addClass('js-is-hidden');
+		$('#events-title').text('Events on tour');
 		$("a[js-data='events-all']").removeClass('is-active');
 		$("a[js-data='events-expired']").removeClass('is-active');
 		
@@ -47,6 +50,7 @@ $(document).on('ready', function(){
 		$("div[id='events-expired']").removeClass('js-is-hidden');
 		$("div[id='events-all']").addClass('js-is-hidden');
 		$("div[id='events-ontour']").addClass('js-is-hidden');
+		$('#events-title').text('Completed Events');
 		$("a[js-data='events-all']").removeClass('is-active');
 		$("a[js-data='events-ontour']").removeClass('is-active');	
 	});

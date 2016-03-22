@@ -3,9 +3,7 @@
   <!-- Left side -->
   <div class="navbar-left">
     <div class="navbar-item">
-      <p class="title is-3 is-text-bold">
-        <%=@band.name %> events
-      </p>
+      <p id="events-title" class="title is-3 is-text-bold">All Events</p>
     </div>
   </div>
 
@@ -13,7 +11,7 @@
   <div class="navbar-right">
     <p class="navbar-item"><a js-data="events-all" class="is-active">All(<%=@events.count %>)</a></p>
     <p class="navbar-item"><a js-data="events-ontour">On Tour(<%= @events.on_tour %>)</a></p>
-    <p class="navbar-item"><a js-data="events-expired">Expired(<%= @events.expired %>)</a></p>
+    <p class="navbar-item"><a js-data="events-expired">Completed(<%= @events.expired %>)</a></p>
     <p class="navbar-item">
     	<a class="button is-primary" href="<%= new_user_band_event_path %>">
     		<i class="fa fa-plus"></i>

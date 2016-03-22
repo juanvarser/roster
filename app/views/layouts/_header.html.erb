@@ -1,12 +1,19 @@
 <header class="header">
   <div class="container">
     <!-- Left side -->
+
     <div class="header-left">
+      <%if !user_signed_in?%>
       <a class="header-item" href="/">
         <img src="/roster.svg" width="70"></img>
         <h1 class="title is-3 is-primary-color is-text-bold">Roster</h1>
       </a>
+      <% end %>
       <%if user_signed_in?%>
+      <a class="header-item" href=<%="#{user_bands_path(user_id: current_user.id)}"%>>
+        <img src="/roster.svg" width="70"></img>
+        <h1 class="title is-3 is-primary-color is-text-bold">Roster</h1>
+      </a>
       <a class="header-tab bands" href=<%="#{user_bands_path(user_id: current_user.id)}"%>>Bands</a>
       <a class="header-tab events" href=<%="#{user_all_bands_events_path(user_id: current_user.id)}"%>>Events</a>
       <a class="header-tab venues" href=<%="#{user_venues_path(user_id: current_user.id)}"%>>Venues</a>
