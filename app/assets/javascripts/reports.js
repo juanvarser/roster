@@ -3,7 +3,6 @@ var handleErrorReport = function(){
 };
 
 var handleReport = function(result){
-	console.log(result);
 	
 	var labels = [];
 
@@ -20,6 +19,7 @@ var handleReport = function(result){
 			});
             receive.push(total);
 		});
+        
 		return receive;
 	};
 
@@ -32,6 +32,7 @@ var handleReport = function(result){
 			});
             receive.push(total);
 		});
+
 		return receive;
 	};
 

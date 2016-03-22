@@ -1,0 +1,21 @@
+<div class="column is-4">
+			<div class="card">
+			  <figure class="card-image">
+			    <a href="<%=user_venue_path(user_id:current_user.id, id:venue.id)%>">
+			    	<%= image_tag venue.image, class:"is-flexible-image" %>
+			    </a>
+			  </figure>
+			  <div class="card-content">
+			    <div class="media">
+			      <div class="media-content">
+			        <a href="<%=user_venue_path(user_id:current_user.id, id:venue.id)%>">
+			        	<p class="title is-4 is-text-bold card-title-ellipsis"><%= venue.name %></p>
+			        </a>
+			      </div>
+			    </div>
+			    <div class="content">
+			      <p class="card-text-ellipsis"><%= venue.address + ', ' + venue.city %></p>
+			    </div>
+			  </div>
+			</div>
+			</div>

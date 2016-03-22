@@ -1,0 +1,48 @@
+<% if @errors %>
+			<%= flash_message %>
+		<ul>
+			<% @errors.each do |error|%>
+			<li class="">
+				<%= error %>
+			</li>
+			<% end %>
+		</ul>
+<% end %>
+
+<%= form_for [current_user, @venue] do |f| %>
+	<p class="control">
+		<%= label_tag(:name, "Venue name:", class:'title is-5') %>
+		<%=f.text_field :name, placeholder:"Fillmore East", class:"input" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:address, "Address:", class:'title is-5') %>
+		<%=f.text_field :address, placeholder:"Fake Street 123", class:"input" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:city, "City:", class:'title is-5') %>
+		<%=f.text_field :address, placeholder:"San Francisco", class:"input" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:cache, "Cache:", class:'title is-5') %>
+		<%= f.text_field :cache, placeholder:"1000", class:"input" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:email, "E-mail:", class:'title is-5') %>
+		<%= f.text_field :email, placeholder:"info@fillmore.us", class:"input" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:phone, "Phone Number:", class:'title is-5') %>
+		<%= f.text_field :phone, placeholder:"0034123456789", class:"input" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:contact_name, "Contact Name:", class:'title is-5') %>
+		<%= f.text_field :contact_name, placeholder:"John Doe", class:"input" %>
+	</p>
+	<p class="control">
+		<%= label_tag(:image, "Venue Image (max. 1mb):", class:'title is-5') %>
+		<%= f.file_field :image, class:"input" %>
+	</p>
+	<p class="control">
+		<%= f.submit 'Save', class:"button is-primary is-fullwidth" %>
+	</p>
+<% end %>

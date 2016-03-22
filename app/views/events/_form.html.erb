@@ -2,7 +2,9 @@
 			<%= flash_message %>
 		<ul>
 			<% @errors.each do |error|%>
-			<li class=""><%= error %></li>
+			<li class="">
+				<%= error %>
+			</li>
 			<% end %>
 		</ul>
 <% end %>
@@ -23,10 +25,10 @@
 	<hr>
 	<p class="control">
 		<%= label_tag(:price, "Event Type:", class:'title is-5') %><br>
-		<%= f.radio_button(:event_type, "band_cache") %>
-		<%= label_tag(:event_type, "Band Cache") %>
-		<%= f.radio_button(:event_type, "box_office") %>
-		<%= label_tag(:event_type, "Box Office Event") %>
+		<%= f.radio_button(:event_type, "band_cache", class: "radio") %>
+		<%= label_tag(:event_type, "Band Cache", name: 'question') %>
+		<%= f.radio_button(:event_type, "box_office", class: "radio") %>
+		<%= label_tag(:event_type, "Box Office Event", name: 'question') %>
 	</p>
 	<hr>
 	<p class="control">

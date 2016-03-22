@@ -30,8 +30,7 @@ class BandsController < ApplicationController
 	end
 
 	def destroy
-		@user = current_user
-		band = @user.bands.find_by id: params[:id]
+		band = current_user.bands.find_by id: params[:id]
 		band.destroy
 		redirect_to user_bands_path
 	end

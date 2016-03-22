@@ -2,7 +2,6 @@ class ReportsController < ApplicationController
 	respond_to :json
 
 	def events_report
-
 		events_ary = []
 		band = Band.find_by id: params[:band_id]
 		events = band.events.where(completed: true).to_a

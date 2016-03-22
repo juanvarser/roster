@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
 	has_attached_file :image
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 	validates :price, numericality: true
+	validates :event_type, inclusion: ['band_cache','box_office']
+	validates_date :date, :on_or_after => lambda { Date.current }
 
 	def set_band!(band)
 		self.band_id = band.id

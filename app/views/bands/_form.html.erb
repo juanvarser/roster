@@ -2,7 +2,9 @@
 			<%= flash_message %>
 		<ul>
 			<% @errors.each do |error|%>
-			<li class=""><%= error %></li>
+			<li class="">
+				<%= error %>
+			</li>
 			<% end %>
 		</ul>
 <% end %>

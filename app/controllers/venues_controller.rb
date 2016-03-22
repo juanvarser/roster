@@ -1,14 +1,15 @@
 class VenuesController < ApplicationController
+	
 	def index
-		@venues = Venue.all
+		@venues = current_user.venues.all
 	end
 
 	def new
-		@venue = Venue.new
+		@venue = current_user.venues.new
 	end
 
 	def create
-		@venue = Venue.new venue_params
+		@venue = current_user.venues.new venue_params
 		if @venue.save
 			flash[:"is-success"] = "Rock on!You have created a new venue"
 			redirect_to venues_path
@@ -16,6 +17,10 @@ class VenuesController < ApplicationController
 			flash[:"alert"] = "Oops!Something went wrong..."
 			render 'new'
 		end
+	end
+
+	def show
+		
 	end
 
 	private

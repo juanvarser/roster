@@ -2,15 +2,14 @@ class EventsController < ApplicationController
 	respond_to :json
 
 	def index
-		@user = current_user
-		@band = @user.bands.find_by id: params[:band_id]
+		@band = current_user.bands.find_by id: params[:band_id]
 		@events = @band.events.all.order(date: 'ASC')
 	end
 
 	def new
 		@user = current_user
 		@venue = @user.venues.all
-		@band = @user.bands.find_by id: params[:band_id]
+		@band = current_user.bands.find_by id: params[:band_id]
 		@event = @band.events.new
 	end
 
@@ -42,7 +41,7 @@ class EventsController < ApplicationController
 
 			Event.add_venue_cache_to_finances(@event.id,@event.venue_id)
 			flash[:"is-success"] = "Rock on!You have created a new event"
-			redirect_to user_band_events_path
+			redirect_to user_band_event_path id: @event.id
 		else
 			@errors = @event.errors.full_messages
 			flash[:"is-alert"] = "Oops!Something went wrong..."
@@ -51,16 +50,14 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
-		user = current_user
-		band = user.bands.find_by id: params[:band_id]
+		band = current_user.bands.find_by id: params[:band_id]
 		@event = band.events.find_by id: params[:id]
 		@event.destroy
 		redirect_to user_band_events_path
 	end
 
 	def close_event
-		@user = current_user
-		@band = @user.bands.find_by id: params[:band_id]
+		@band = current_user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:event_id]
 		@event.event_completed
 		

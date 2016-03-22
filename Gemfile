@@ -30,6 +30,9 @@ gem "font-awesome-rails"
 gem 'typekit-rails'
 gem 'rails_12factor', group: :production
 
+# Date Validation
+gem 'validates_timeliness', '~> 4.0'
+
 #Paperclip for upload images
 gem "paperclip", "~> 4.3"
 
