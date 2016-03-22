@@ -1,8 +1,10 @@
 <section class="hero is-left">
-  <div class="hero-content is-gradient">
+  <div class="hero-band-background is-hero-band-image" style="background-image:url(<%= @band.image.url %>")></div>
+  <div class="hero-band-background is-hero-band-gradient is-gradient"></div>
+  <div class="hero-content">
     <div class="container is-fluid">
       <h1 class="title is-1 artist-page-title">
-        <%=@band.name%> Finances
+        <%=@band.name%> finances:
       </h1>
     </div>
   </div>

@@ -1,9 +1,9 @@
 <div class="column is-4">
 	<div class="card">
 	  <div class="card-image">
-	    <figure class="image is-4by3">
-	      <a href="">
-	      	<%= image_tag event.image %>
+	    <figure class="image">
+	      <a href="<%= user_band_event_path(band_id: event.band_id, id: event.id) %>">
+	      	<%= image_tag event.image, class:"is-flexible-image" %>
 	      </a>
 	    </figure>
 	    <div class="event-date is-text-centered is-lighter-color">
@@ -14,7 +14,7 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-        	<a href="">
+        	<a href="<%= user_band_event_path(band_id: event.band_id, id: event.id) %>">
           	<p class="title is-4 is-text-bold card-title-ellipsis">
           		<%= get_venue(event.venue_id).name %>
           	</p>

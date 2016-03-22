@@ -164,7 +164,7 @@ $(document).on('ready', function(){
 	var api_resource = window.location.pathname.split("/");
 
 	$.ajax({
-        data: 'GET',    
+        method: 'GET',    
 		url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events_report',
 		success: handleReport,
 		error: handleErrorReport,

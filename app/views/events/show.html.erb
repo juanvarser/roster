@@ -1,5 +1,7 @@
 <section class="hero is-left">
-  <div class="hero-content is-gradient">
+  <div class="hero-band-background is-hero-band-image" style="background-image:url(<%= @event.image.url %>")></div>
+  <div class="hero-band-background is-hero-band-gradient is-gradient"></div>
+  <div class="hero-content">
     <div class="container is-fluid">
     	<div class="columns">
     		<div class="column is-1">
@@ -18,6 +20,9 @@
 		      	@<%= get_venue(@event.venue_id).name %>
 		      </h3>
 		    </div>
+    </div>
+  </div>
+  </div>
     </div>
   </div>
 </section>
