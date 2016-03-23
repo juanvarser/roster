@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :bands, only: [:index, :new, :create,:show, :edit,:update, :destroy] do
+      patch 'update_band_info', :to => 'bands#update_band_info'
       resources :products, only: [:index, :new, :create,:edit,:update, :destroy]
       resources :events, only: [:index,:show, :new, :create,:edit,:update, :destroy] do
+        get 'route_map', :to => 'events#get_route_map'
         resources :finances, only: [:index, :new, :create,:edit,:update, :destroy]
         get 'close_event', :to => 'events#close_event'
         get 'event_info', :to => 'events#get_event_info'
@@ -19,7 +21,9 @@ Rails.application.routes.draw do
       get 'events_report', :to => 'reports#events_report'
       get 'events_stats', :to => 'reports#events_stats'
     end
-    resources :venues, only: [:index, :new, :create,:show, :edit,:update, :destroy]
+    resources :venues, only: [:index, :new, :create,:show, :edit,:update, :destroy] do
+      post 'update_venue_info', :to => 'venues#update_venue_info'
+    end
 
   get 'all_bands_events', :to => 'users#all_bands_events'
 

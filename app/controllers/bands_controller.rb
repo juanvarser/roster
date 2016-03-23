@@ -2,7 +2,7 @@ class BandsController < ApplicationController
 
 	def index
 		@user = current_user
-		@bands = @user.bands
+		@bands = @user.bands.order(id:'ASC')
 	end
 
 	def new
@@ -11,7 +11,7 @@ class BandsController < ApplicationController
 
 	def create
 		@user = current_user
-		@band = Band.new band_params
+		@band = @user.bands.new band_params
 		if @band.save
 			@band.set_user!(@user)
 			flash[:"is-success"] = "Rock on!You have created a new band"
@@ -23,9 +23,25 @@ class BandsController < ApplicationController
 		end
 	end
 
+	def update_band_info
+		band = current_user.bands.find_by id: params[:band_id]
+		if params[:band_description] != nil
+		band.description = params[:band_description]
+		end
+		if params[:band_cache] != nil
+		band.cache = params[:band_cache]
+		end
+		members = band.members.all
+		render status:200,
+			json: {
+				band: band,
+				members: members
+			}
+		band.save
+	end
+
 	def show
-		@user = current_user
-		@band = @user.bands.find_by id: params[:id]
+		@band = current_user.bands.find_by id: params[:id]
 	end
 
 	def destroy

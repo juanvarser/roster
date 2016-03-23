@@ -1,7 +1,3 @@
-var handleErrorReport = function(){
-	console.log('Error loading JSON report');
-};
-
 var handleReport = function(result){
 	
 	var labels = [];
@@ -159,17 +155,19 @@ var handleReport = function(result){
 
 };
 
-$(document).on('ready', function(){
-    
-	var base_url = window.location.host;
-	var api_resource = window.location.pathname.split("/");
+var getEventReport = function(){
+    var base_url = window.location.host;
+    var api_resource = window.location.pathname.split("/");
 
-	$.ajax({
+    $.ajax({
         method: 'GET',    
-		url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events_report',
-		success: handleReport,
-		error: handleErrorReport,
-		dataType: 'json'
-	});
+        url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events_report',
+        success: handleReport,
+        error: function(data){console.log(data)},
+        dataType: 'json'
+    });
+};
 
+$(document).on('ready', function(){
+    getEventReport();
 })

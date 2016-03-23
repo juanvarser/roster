@@ -80,6 +80,13 @@ class EventsController < ApplicationController
 
 	end
 
+	def get_route_map
+		@band = current_user.bands.find_by id: params[:band_id]
+		@event = @band.events.find_by id: params[:id]
+		@example = "Hello World!"
+		render pdf: @example
+	end
+
 	private
 	def event_params
 		params.require(:event).permit(:price,:date,:time,:image,:venue_id,:event_type)

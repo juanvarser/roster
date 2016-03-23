@@ -19,8 +19,16 @@ class VenuesController < ApplicationController
 		end
 	end
 
+	def update_venue_info
+		venue = current_user.venues.find_by id: params[:venue_id]
+		venue.cache = params[:venue_cache]
+		render status:200, json: venue
+		venue.save
+	end
+
 	def show
-		
+		@venue = current_user.venues.find_by id: params[:id]
+
 	end
 
 	private

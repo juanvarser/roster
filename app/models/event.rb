@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
 	has_one :venue
 	has_one :report
 	has_many :finances
-	has_attached_file :image
+	has_attached_file :image, :default_url => 'band.jpg'
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 	validates :price, numericality: true
 	validates :event_type, inclusion: ['band_cache','box_office']

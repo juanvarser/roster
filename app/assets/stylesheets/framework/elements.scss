@@ -24,3 +24,12 @@
 	overflow:hidden;
 	width:100%
 }
+
+.is-update-content-button{
+	float:right;
+	margin: 6px 0;
+	&:hover{
+		pointer:hand;
+		color: $primary;
+	}
+}

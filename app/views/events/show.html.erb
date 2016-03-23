@@ -37,6 +37,11 @@
 	      	Close Event
 	      </a>
     	</p>
+    	<p class="control">
+				<a class="button is-primary is-fullwidth" href="<%= user_band_event_route_map_path(event_id: params[:id],:format => :pdf) %>">
+	      	Generate route map
+	      </a>
+    	</p>
 			<% end %>
 			<p class="control">
 	      <a class="button is-danger is-fullwidth" data-method="DELETE" data-confirm="Are you sure?" href=<%="#{user_band_event_path}"%>>

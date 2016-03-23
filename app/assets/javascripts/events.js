@@ -1,6 +1,3 @@
-var handleErrorEvent = function(){
-	console.log('ERROR')
-};
 var handleEvent = function(event){
 	if(event.completed == true){
 		$('a[controller=finances]').addClass('is-disabled');
@@ -8,19 +5,23 @@ var handleEvent = function(event){
 	}
 };
 
-
-
-$(document).on('ready', function(){
-
+var getEventsInfo = function(){
 	var base_url = window.location.host;
 	var api_resource = window.location.pathname;
 	$.ajax({
     method: 'GET',    
 		url: 'http://' + base_url + api_resource + '/event_info',
 		success: handleEvent,
-		error: handleErrorEvent,
+		error: function(data){console.log(data)},
 		dataType: 'json'
 	});
+};
+
+
+
+$(document).on('ready', function(){
+
+	getEventsInfo();
 
 	var eventsAll = $("a[js-data='events-all']").on('click', function(){
 		$(this).addClass('is-active');

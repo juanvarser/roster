@@ -36,6 +36,10 @@ gem 'validates_timeliness', '~> 4.0'
 #Paperclip for upload images
 gem "paperclip", "~> 4.3"
 
+#PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

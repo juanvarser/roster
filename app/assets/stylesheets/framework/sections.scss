@@ -1,4 +1,3 @@
-.bands{}
 .bands::before {
   font-family:FontAwesome;
 	content: "\f001";
@@ -7,7 +6,6 @@
   vertical-align: middle;
   }
 
-.events{}
 .events::before {
   font-family: FontAwesome;
   content: "\f073";
@@ -16,7 +14,6 @@
   margin-right: 10px;
 }
 
-.venues{}
 .venues::before {
 	font-family:FontAwesome;
   content: "\f0f7";
@@ -25,7 +22,6 @@
   margin-right: 10px;
 }
 
-.finances{}
 .finances::before {
 	font-family:FontAwesome;
   content: "\f24e";
