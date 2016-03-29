@@ -25,5 +25,4 @@ class ReportsController < ApplicationController
 	def events_stats
 		@band = current_user.bands.find_by id: params[:band_id]
 	end
-
 end

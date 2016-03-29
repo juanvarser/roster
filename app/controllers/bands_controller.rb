@@ -1,7 +1,6 @@
 class BandsController < ApplicationController
 
 	def index
-		
 		@bands = current_user.bands.order(id:'ASC')
 	end
 

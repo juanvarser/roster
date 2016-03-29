@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe Event, type: :model do
 	before do
     user = User.create(
-      name:'fake',
-      email:'faker@faker.es',
-      password:'ironhack'
+      name: 'fake',
+      email: 'faker@faker.es',
+      password: 'ironhack'
       )
     
     band = Band.create(
@@ -18,7 +18,7 @@ RSpec.describe Event, type: :model do
 
     venue = Venue.create(
       name: 'Fillmore',
-      address:'Fake Street 123',
+      address: 'Fake Street 123',
       city: 'San Francisco',
       email: '1@2.es',
       phone: '123456899',
@@ -68,7 +68,6 @@ RSpec.describe Event, type: :model do
   			concept_type: "Expense",
   			event_id: 104
   		}
-
   		Event.generate_report(@event.id,@event.date,payload.to_json)
   		report = Report.last
   		expect(report.event_id).to equal(@event.id)
@@ -86,7 +85,5 @@ RSpec.describe Event, type: :model do
     	@finance = @event.finances.last
     	expect(@finance.amount).to equal(@band.cache)
     end
-
   end
-
 end

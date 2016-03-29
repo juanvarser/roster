@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'pry'
 
 RSpec.describe EventsController, type: :controller do
-
   before do
     user = User.create(
       name:'fake',

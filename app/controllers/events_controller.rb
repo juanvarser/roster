@@ -16,6 +16,7 @@ class EventsController < ApplicationController
 		@band = current_user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:id]
 		@finance = @event.finances.new
+		@members = @band.members.all
 	end
 
 	def edit

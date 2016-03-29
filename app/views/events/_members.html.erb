@@ -1,0 +1,12 @@
+<tr>
+  <td><%= members.name || '-' %></td>
+  <td><%= members.instrument || '-' %></td>
+  <td><%= members.gear || '-' %></td>
+  <td> 
+    <% if !members.special_food %>
+      <i class="fa fa-times"></i>
+    <% else %>
+      <i class="fa fa-check"></i>
+    <% end %>
+  </td>
+</tr>

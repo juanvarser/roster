@@ -57,5 +57,4 @@ class Event < ActiveRecord::Base
 			event_id: id
 			)
 	end
-
 end

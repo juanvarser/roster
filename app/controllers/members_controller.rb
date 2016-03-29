@@ -28,5 +28,4 @@ class MembersController < ApplicationController
 	def member_params
 		params.require(:member).permit(:name,:instrument,:gear,:special_food)
 	end
-
 end

@@ -96,6 +96,22 @@
 					</table>
   			</div>
   			<hr>
+  			<div id="members-tab" class="column">
+  				<h1 class="title is-3">Band Members:</h3>
+  				<table class="table">
+					  <thead>
+					    <tr>
+					      <th>Name</th>
+					      <th>Instrument</th>
+					      <th>Gear</th>
+					      <th>Vegetarian?</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+							<%= render partial: 'members', collection: @members, as: :members %>
+					  </tbody>
+					</table>
+  			</div>
   	</div>	
   	</div>
   </div>
