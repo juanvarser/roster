@@ -7,8 +7,7 @@ class EventsController < ApplicationController
 	end
 
 	def new
-		@user = current_user
-		@venue = @user.venues.all
+		@venue = current_user.venues.all
 		@band = current_user.bands.find_by id: params[:band_id]
 		@event = @band.events.new
 	end
@@ -19,18 +18,28 @@ class EventsController < ApplicationController
 		@finance = @event.finances.new
 	end
 
-	def update
-		@user = current_user
-		@band = @user.bands.find_by id: params[:band_id]
+	def edit
+		@band = current_user.bands.find_by id: params[:band_id]
 		@event = @band.events.find_by id: params[:id]
-		@finance = @event.finances.all.to_a
-		redirect_to :back
-		flash[:"is-success"] = "Great! You have updated a new report event"
+
+	end
+
+	def update
+		@band = current_user.bands.find_by id: params[:band_id]
+		@event = @band.events.find_by id: params[:id]
+		if @event.update event_params
+			@event.finances.find_by(concept:'Venue Cache').destroy
+			Event.add_venue_cache_to_finances(@event.id,@event.venue_id)
+			flash[:"is-success"] = "Great! You have updated a new report event"
+			redirect_to user_band_event_path id: params[:id]
+		else
+			@errors = @event.errors.full_messages
+			render 'edit'
+		end
 	end
 
 	def create
-		@user = current_user
-		@band = @user.bands.find_by id: params[:band_id]
+		@band = current_user.bands.find_by id: params[:band_id]
 		@event = Event.new event_params
 		if @event.save
 			@event.set_band!(@band)

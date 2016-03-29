@@ -96,7 +96,7 @@ var handleBandComission = function(){
 
 	$('.fa-floppy-o').on('click', function(){
 		var data = {
-			band_cache: $('#band_comission').val()
+			band_comission: $('#band_comission').val()
 		};
 		updateBandInfo(data,saveBandComission);
 	});
@@ -107,6 +107,31 @@ var saveBandComission = function(result){
 	$('input[data-js="comission"]').replaceWith('<p data-js="cache">' + result.band.comission + '</p>');
 	$('h1[data-js="comission-content"] i').remove();
 	$('h1[data-js="comission-content"]').append(editButton);
+};
+
+var handleBandName = function(){
+	var content = $('h1[data-js="name"]').html();
+	var saveButton = "<i class='fa fa-floppy-o is-update-hero-button'></i>";
+	var editField = "<input id='band_name' class='input' data-js='name' placeholder=" + content.toString() + "></input>";
+	
+	$('h1[data-js="name"]').replaceWith(editField);
+	$('div[data-js="name-content"] i').remove();
+	$('div[data-js="name-content"]').append(saveButton);
+
+	$('.fa-floppy-o').on('click', function(){
+		var data = {
+			band_name: $('#band_name').val()
+		};
+		updateBandInfo(data,saveBandName);
+	});
+};
+
+var saveBandName = function(result){
+	console.log(result);
+	var editButton = '<i class="fa fa-pencil is-update-hero-button" onclick="handleBandName()"></i>'
+	$('input[data-js="name"]').replaceWith('<h1 data-js="name" class="title is-1 artist-page-title">' + result.band.name + '</h1>');
+	$('div[data-js="name-content"] i').remove();
+	$('div[data-js="name-content"]').append(editButton);
 };
 
 $(document).on('ready', function(){
@@ -120,5 +145,6 @@ $(document).on('ready', function(){
 	$('i[data-js="description"]').click(handleBandDescription);
 	$('i[data-js="cache"]').click(handleBandCache);
 	$('i[data-js="comission"]').click(handleBandComission);	
+	$('i[data-js="name"]').click(handleBandName);	
 
 });

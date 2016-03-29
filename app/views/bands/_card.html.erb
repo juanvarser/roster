@@ -1,13 +1,13 @@
 <div class="column is-4">
 			<div class="card">
 			  <figure class="card-image">
-			    <a href="<%=user_band_path(user_id:@user.id, id:band.id)%>">
+			    <a href="<%=user_band_path(user_id:current_user.id, id:band.id)%>">
 			    	<%= image_tag band.image, class:"is-flexible-image" %>
 			    </a>
 			    <div class="container card-submenu is-text-centered js-is-hidden">
 	      		<ul>
 		      		<li>
-		      			<a class="button is-primary" href="<%=user_band_path(user_id:@user.id, id:band.id)%>">
+		      			<a class="button is-primary" href="<%=user_band_path(user_id:current_user.id, id:band.id)%>">
 		      				<i class="fa fa-cog fa-2x"></i>
 		      			</a>
 		      		</li>
@@ -17,7 +17,7 @@
 		      			</a>
 		      		</li>
 		      		<li>
-			      		<a class="button is-primary" href="<%=user_band_events_path(user_id:@user.id, band_id:band.id)%>">
+			      		<a class="button is-primary" href="<%=user_band_events_path(user_id:current_user.id, band_id:band.id)%>">
 			      			<i class="fa fa-calendar-o"></i>
 			      		</a>
 		      		</li>
@@ -32,7 +32,7 @@
 			  <div class="card-content">
 			    <div class="media">
 			      <div class="media-content">
-			        <a href="<%=user_band_path(user_id:@user.id, id:band.id)%>">
+			        <a href="<%=user_band_path(user_id:current_user.id, id:band.id)%>">
 			        	<p class="title is-4 is-text-bold card-title-ellipsis"><%= band.name %></p>
 			        </a>
 			      </div>

@@ -27,13 +27,16 @@
           Address
           <i data-js="address" class="fa fa-pencil is-update-content-button"></i>
         </h1>
+        <p><strong>Street:</strong></p>
         <p data-js="address"><%= @venue.address %></p>
+        <p><strong>City:</strong></p>
+        <p data-js="city"><%= @venue.city %></p>
       </div>
       <hr>
       <div class="content">
         <h1 class="title is-3" data-js="cache-content">
           Cache
-          <i data-js="cache" class="fa fa-pencil is-update-content-button"></i>
+          <i data-js="cache" class="fa fa-pencil is-update-content-button" onclick="handleVenueCache()"></i>
         </h1>
         <p data-js="cache"><%= @venue.cache %> €</p>
       </div>
@@ -43,7 +46,12 @@
           Contact name:
           <i data-js="contact" class="fa fa-pencil is-update-content-button"></i>
         </h1>
-        <p data-js="contact"><%= @venue.contact_name %></p>
+        <p><strong>Contact Name:</strong></p>
+        <p data-js="contact-name"><%= @venue.contact_name %></p>
+        <p><strong>Phone Number:</strong></p>
+        <p data-js="contact-phone"><%= @venue.phone %></p>
+        <p><strong>Email:</strong></p>
+        <p data-js="contact-email"><%= @venue.email %></p>
       </div>
       <hr>
   	</div>

@@ -33,13 +33,13 @@
   			<%= image_tag @event.image %>
  			<% if !@event.completed %>
  			<p class="control">
-				<a class="button is-success is-fullwidth" data-method="get" data-confirm="Are you sure?" href="<%= user_band_event_close_event_path(event_id: params[:id]) %>">
-	      	Close Event
+	      <a class="button is-primary is-fullwidth" data-method="GET" href=<%="#{edit_user_band_event_path}"%>>
+	      	Update Event
 	      </a>
-    	</p>
-    	<p class="control">
-				<a class="button is-primary is-fullwidth" href="<%= user_band_event_route_map_path(event_id: params[:id],:format => :pdf) %>">
-	      	Generate route map
+	    </p>
+ 			<p class="control">
+				<a class="button is-success is-fullwidth" data-method="GET" data-confirm="Are you sure?" href="<%= user_band_event_close_event_path(event_id: params[:id]) %>">
+	      	Close Event
 	      </a>
     	</p>
 			<% end %>
@@ -73,6 +73,13 @@
 				    	<%= get_venue(@event.venue_id).email || "Not email yet" %>
 				    </li>
 					</ul>
+					<% if !@event.completed %>
+					<p class="control">
+						<a class="button is-primary is-fullwidth" href="<%= user_band_event_route_map_path(event_id: params[:id],:format => :pdf) %>">
+	      			Generate route map
+	      		</a>
+    			</p>
+    			<% end %>
 				</div>
 				<hr>
 				<div id="finances-tab" class="column">

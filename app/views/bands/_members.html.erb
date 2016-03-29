@@ -1,53 +1,19 @@
-<h1 class="title is-3">Members</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Instrument</th>
-      <th>Gear</th>
-      <th>Vegetarian?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Misty Abbott</td>
-      <td>Bass Guitar</td>
-      <td>Sinmarc 2x10 1969</td>
-      <td class="table-link table-icon">
-        <label class="checkbox">
-          <input type="checkbox">
-        </label>
-      </td>
-    </tr>
-    <tr>
-      <td>John Smith</td>
-      <td>Rhythm Guitar</td>
-      <td>Sinmarc 2x10 1969</td>
-      <td class="table-link table-icon">
-        <label class="checkbox">
-          <input type="checkbox">
-        </label>
-      </td>
-    </tr>
-    <tr>
-      <td>Robert Mikels</td>
-      <td>Lead Guitar</td>
-      <td>Sinmarc 2x10 1969</td>
-      <td class="table-link table-icon">
-        <label class="checkbox">
-          <input type="checkbox">
-        </label>
-      </td>
-    </tr>
-    <tr>
-      <td>Karyn Holmberg</td>
-      <td>Drums</td>
-      <td>Premier Champagne 1969</td>
-      <td class="table-link table-icon">
-        <label class="checkbox">
-          <input type="checkbox">
-        </label>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<tr>
+  <td><%= members.name %></td>
+  <td><%= members.instrument %></td>
+  <td><%= members.gear %></td>
+  <td> 
+    <% if !members.special_food %>
+      <i class="fa fa-times"></i>
+    <% else %>
+      <i class="fa fa-check"></i>
+    <% end %>
+  </td>
+  <td>
+    <a><i data-js="members" class="fa fa-pencil"></i>
+    <%= link_to user_band_member_path(band_id: @band.id ,id: members.id),
+  controller: :members, method: :delete, data: {confirm: 'Are you sure?'} do %>
+    <i class="fa fa-trash"></i>
+  <% end %>
+  </td>
+</tr>

@@ -21,7 +21,12 @@ class VenuesController < ApplicationController
 
 	def update_venue_info
 		venue = current_user.venues.find_by id: params[:venue_id]
+		if params[:venue_address] != nil
+		venue.address = params[:venue_address]
+		end
+		if params[:venue_cache] != nil
 		venue.cache = params[:venue_cache]
+		end
 		render status:200, json: venue
 		venue.save
 	end

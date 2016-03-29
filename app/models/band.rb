@@ -10,6 +10,7 @@ class Band < ActiveRecord::Base
 	validates :comission, numericality: true
 	validates :description, length: {maximum: 500}
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+	accepts_nested_attributes_for :members
 
 	def set_user!(user)
 		self.user_id = user.id

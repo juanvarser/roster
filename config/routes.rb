@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :bands, only: [:index, :new, :create,:show, :edit,:update, :destroy] do
       patch 'update_band_info', :to => 'bands#update_band_info'
+      resources :members, only: [:new, :create, :destroy]
       resources :products, only: [:index, :new, :create,:edit,:update, :destroy]
       resources :events, only: [:index,:show, :new, :create,:edit,:update, :destroy] do
         get 'route_map', :to => 'events#get_route_map'

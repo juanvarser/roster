@@ -26,10 +26,19 @@
 }
 
 .is-update-content-button{
+	font-size:18px;
 	float:right;
 	margin: 6px 0;
 	&:hover{
 		pointer:hand;
 		color: $primary;
 	}
+}
+
+.is-update-hero-button{
+	position:absolute;
+	float: right;
+	z-index: 99;
+	top:0;
+	right:0;
 }

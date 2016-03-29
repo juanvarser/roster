@@ -10,15 +10,9 @@ class UsersController < ApplicationController
 		@events = []
 		bands = current_user.bands.all
 		bands.each do |band|
-			band_events(@events, band)
+			User.band_events(@events, band)
 		end
 		@events.sort! {|a,b| a.date <=> b.date }
-	end
-
-	private
-
-	def band_events (events,band)
-		band.events.where(completed: false).each {|event| events << event}
 	end
 
 end

@@ -24,19 +24,19 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-#Framework & assets
-gem "bulma-rails", "~> 0.0.14"
-gem "font-awesome-rails"
+# Framework & assets
+gem 'bulma-rails', ~> '0.0.14'
+gem 'font-awesome-rails'
 gem 'typekit-rails'
 gem 'rails_12factor', group: :production
 
 # Date Validation
 gem 'validates_timeliness', '~> 4.0'
 
-#Paperclip for upload images
-gem "paperclip", "~> 4.3"
+# Paperclip for upload images
+gem 'paperclip', '~> 4.3'
 
-#PDF
+# PDF
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
@@ -54,6 +54,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
+  gem 'rubocop', require: false
 end
 
 group :development do

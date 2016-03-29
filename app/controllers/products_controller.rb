@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 		else
 			@errors = @product.errors.full_messages
 			flash[:"is-alert"] = "Oops!Something went wrong..."
-			render 'new'
+			redirect_to :back
 		end
 	end
 
