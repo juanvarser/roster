@@ -27,6 +27,8 @@ class VenuesController < ApplicationController
 		if params[:venue_cache] != nil
 		venue.cache = params[:venue_cache]
 		end
+		venue.name = params[:venue_name]
+
 		render status:200, json: venue
 		venue.save
 	end
