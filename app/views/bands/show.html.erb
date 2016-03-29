@@ -15,9 +15,11 @@
   <div class="columns is-wrap is-columns-margin">	
   	<div class="column is-4">
   		<%= image_tag @band.image %>
+      <%= form_for [current_user, @band] do |f| %>
       <p class="control">
         <a class="button is-success is-fullwidth">Update Picture</a>
       </p>
+      <% end %>
       <p class="control"> 
         <a class="button is-danger is-fullwidth" data-method="DELETE" data-confirm="Are you sure?" href=<%="#{user_band_path}"%>>Delete</a>
       </p>

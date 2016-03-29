@@ -12,7 +12,7 @@ class VenuesController < ApplicationController
 		@venue = current_user.venues.new venue_params
 		if @venue.save
 			flash[:"is-success"] = "Rock on!You have created a new venue"
-			redirect_to venues_path
+			redirect_to user_venues_path
 		else
 			flash[:"alert"] = "Oops!Something went wrong..."
 			render 'new'
@@ -38,7 +38,7 @@ class VenuesController < ApplicationController
 
 	private
 	def venue_params
-		params.require(:band).permit(:name,:address,:city,:cache,:mail,:phone,:contact_name)
+		params.require(:venue).permit(:name,:address,:city,:cache,:email,:phone,:contact_name)
 	end
 
 end

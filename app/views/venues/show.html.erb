@@ -2,10 +2,11 @@
   <div class="hero-band-background is-hero-band-image" style="background-image:url(<%= @venue.image.url %>")></div>
   <div class="hero-band-background is-hero-band-gradient is-gradient"></div>
   <div class="hero-content">
-    <div class="container is-fluid">
-      <h1 class="title is-1 artist-page-title">
+    <div class="container is-fluid" data-js="name-content">
+      <h1 class="title is-1 artist-page-title" data-js="name">
         <%=@venue.name%>
       </h1>
+      <i data-js="name" class="fa fa-pencil is-update-hero-button"></i>
     </div>
   </div>
 </section>

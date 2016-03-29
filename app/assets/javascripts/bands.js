@@ -15,14 +15,6 @@ var handlerCardOut = function(){
 
 };
 
-var setNavigation = function() {
-  	$("#tab_menu a").each(function() {   
-    	if (this.href == window.location.href) {
-        $(this).closest('li').addClass("is-active");
-    	}
-		});
-	};
-
 var updateBandInfo = function(data,callback){
 	var base_url = window.location.host;
 	var api_resource = window.location.pathname.split("/");
@@ -127,7 +119,6 @@ var handleBandName = function(){
 };
 
 var saveBandName = function(result){
-	console.log(result);
 	var editButton = '<i class="fa fa-pencil is-update-hero-button" onclick="handleBandName()"></i>'
 	$('input[data-js="name"]').replaceWith('<h1 data-js="name" class="title is-1 artist-page-title">' + result.band.name + '</h1>');
 	$('div[data-js="name-content"] i').remove();
@@ -139,8 +130,6 @@ $(document).on('ready', function(){
 	var HandleCardListener = function(){
 		$('.card').hover(handlerCardIn,handlerCardOut);
 	}();
-
-	setNavigation();	
 
 	$('i[data-js="description"]').click(handleBandDescription);
 	$('i[data-js="cache"]').click(handleBandCache);

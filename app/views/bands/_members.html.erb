@@ -1,7 +1,7 @@
 <tr>
-  <td><%= members.name %></td>
-  <td><%= members.instrument %></td>
-  <td><%= members.gear %></td>
+  <td><%= members.name || '-' %></td>
+  <td><%= members.instrument || '-' %></td>
+  <td><%= members.gear || '-' %></td>
   <td> 
     <% if !members.special_food %>
       <i class="fa fa-times"></i>

@@ -72,6 +72,13 @@ RSpec.describe EventsController, type: :controller do
   		expect(@event.completed).to be true
   	end
 
+    # it 'matches a JSON closed event' do
+    #   get :get_event_info, band_id: @band.id, user_id: @user.id, id: @event.id
+    #   @event.event_completed
+    #   Event.generate_report(@event.id,@event.date,payload.to_json)
+    #   expect(response).to be_success
+    # end
+
   end
 
 end

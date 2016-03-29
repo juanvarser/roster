@@ -103,8 +103,34 @@ var saveVenueContact = function(result){
 	$('h1[data-js="contact-content"]').append(editButton);
 };
 
+var handleVenueName = function(){
+	var content = $('h1[data-js="name"]').html();
+	var saveButton = "<i class='fa fa-floppy-o is-update-hero-button'></i>";
+	var editField = "<input id='venue_name' class='input' data-js='name' placeholder=" + content.toString() + "></input>";
+	
+	$('h1[data-js="name"]').replaceWith(editField);
+	$('div[data-js="name-content"] i').remove();
+	$('div[data-js="name-content"]').append(saveButton);
+
+	$('.fa-floppy-o').on('click', function(){
+		var data = {
+			venue_name: $('#venue_name').val()
+		};
+		updateVenueInfo(data,saveVenueName);
+	});
+};
+
+var saveVenueName = function(result){
+	console.log(result)
+	var editButton = '<i class="fa fa-pencil is-update-hero-button" onclick="handleVenueName()"></i>'
+	$('input[data-js="name"]').replaceWith('<h1 data-js="name" class="title is-1 artist-page-title">' + result.name + '</h1>');
+	$('div[data-js="name-content"] i').remove();
+	$('div[data-js="name-content"]').append(editButton);
+};
+
 $(document).ready(function(){
 	$('i[data-js="address"]').click(handleVenueAddress);
 	$('i[data-js="cache"]').click(handleVenueCache);
 	$('i[data-js="contact"]').click(handleVenueContact);	
+	$('i[data-js="name"]').click(handleVenueName);
 });

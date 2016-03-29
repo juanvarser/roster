@@ -13,7 +13,6 @@ class BandsController < ApplicationController
 		@band = current_user.bands.new band_params
 		@members = @band.members
 		if @band.save
-			@band.set_user!(@user)
 			flash[:"is-success"] = "Rock on!You have created a new band"
 			redirect_to user_bands_path
 		else

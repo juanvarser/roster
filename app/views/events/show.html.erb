@@ -73,13 +73,6 @@
 				    	<%= get_venue(@event.venue_id).email || "Not email yet" %>
 				    </li>
 					</ul>
-					<% if !@event.completed %>
-					<p class="control">
-						<a class="button is-primary is-fullwidth" href="<%= user_band_event_route_map_path(event_id: params[:id],:format => :pdf) %>">
-	      			Generate route map
-	      		</a>
-    			</p>
-    			<% end %>
 				</div>
 				<hr>
 				<div id="finances-tab" class="column">

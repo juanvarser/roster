@@ -33,7 +33,7 @@
 			</td>
       <td><%= product.name %></td>
       <td><%= product.price %></td>
-      <td>Counter</td>
+      <td><%= product.quantity %></td>
       <td class="table-link table-icon">
     		<%= link_to user_band_product_path(band_id: @band.id ,
     		id: product.id), method: :delete, data: {confirm: 'Are you sure?'} do %>

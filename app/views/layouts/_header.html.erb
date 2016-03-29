@@ -17,15 +17,14 @@
       <a class="header-tab bands" href=<%="#{user_bands_path(user_id: current_user.id)}"%>>Bands</a>
       <a class="header-tab events" href=<%="#{user_all_bands_events_path(user_id: current_user.id)}"%>>Events</a>
       <a class="header-tab venues" href=<%="#{user_venues_path(user_id: current_user.id)}"%>>Venues</a>
-      <a class="header-tab finances" href="#">Finances</a>
     <% end %>
     </div>
-    <%if !user_signed_in?%>
+    <%if user_signed_in?%>
     <!-- Hamburger menu (on mobile) -->
     <span class="header-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span><a class="header-tab bands" href=<%="#{user_bands_path(user_id: current_user.id)}"%>>Bands</a></span>
+      <span><a class="header-tab events" href=<%="#{user_all_bands_events_path(user_id: current_user.id)}"%>>Events</a></span>
+      <span><a class="header-tab venues" href=<%="#{user_venues_path(user_id: current_user.id)}"%>>Venues</a></span>
     </span>
     <% end %>
     
