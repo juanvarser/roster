@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Framework & assets
-gem 'bulma-rails', ~> '0.0.14'
+gem 'bulma-rails', '~> 0.0.14'
 gem 'font-awesome-rails'
 gem 'typekit-rails'
 gem 'rails_12factor', group: :production
