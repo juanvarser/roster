@@ -1,27 +1,25 @@
 class ProductsController < ApplicationController
+	before_action :set_band, only: [:index, :create, :destroy]
 
 	def index
-		@band = current_user.bands.find_by id: params[:band_id]
 		@products = @band.products.all
 		@product = @band.products.new
 	end
 
 	def create
-		band = current_user.bands.find_by id: params[:band_id]
-		@product = band.products.new product_params
+		@product = @band.products.new product_params
 		if @product.save
-			flash[:"is-success"] = "Rock on!You have created a new product"
 			redirect_to :back
+			flash[:"is-success"] = "Rock on!You have created a new product"
 		else
 			@errors = @product.errors.full_messages
-			flash[:"is-alert"] = "Oops!Something went wrong..."
 			redirect_to :back
+			flash[:"is-alert"] = "Oops!Something went wrong..."
 		end
 	end
 
 	def destroy
-		band = current_user.bands.find_by id: params[:band_id]
-		@product = band.products.find_by id: params[:id]
+		@product = @band.products.find_by id: params[:id]
 		if @product.destroy
 			flash[:"is-success"] = "Product deleted"
 		else
@@ -32,8 +30,12 @@ class ProductsController < ApplicationController
 	end
 
 	private
+	def set_band
+		@band = current_user.bands.find_by id: params[:band_id]
+	end
+
 	def product_params
-		params.require(:product).permit(:name,:price,:image,:quantity)
+		params.require(:product).permit(:name, :price, :image, :quantity)
 	end
 
 end

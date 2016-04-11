@@ -1,28 +1,31 @@
 class FinancesController < ApplicationController
+	before_action :set_finance
 	
 	def create
-		band = current_user.bands.find_by id: params[:band_id]
-		event = band.events.find_by id: params[:event_id]
 		@finance = event.finances.new finance_params
 		if @finance.save
+			redirect_to :back
 			flash[:"is-success"] = "Rock on!You have created a new band"
-			redirect_to user_band_event_path id: params[:event_id]
 		else
 			@errors = @finance.errors.full_messages
-			flash[:"is-alert"] = "Oops!Something went wrong..."
 			render 'new'
+			flash[:"is-alert"] = "Oops!Something went wrong..."
 		end
 	end
 
 	def destroy
-		band = current_user.bands.find_by id: params[:band_id]
-		event = band.events.find_by id: params[:event_id]
 		@finance = event.finances.find_by id: params[:id]
 		@finance.destroy
-		redirect_to user_band_event_path id: params[:event_id]
+		redirect_to :back
+		flash[:"is-alert"] = "Finance deleted"
 	end
 
 	private
+	def set_finance
+		band = current_user.bands.find_by id: params[:band_id]
+		event = band.events.find_by id: params[:event_id]
+	end
+
 	def finance_params
 		params.require(:finance).permit(:concept_type,:concept,:amount)
 	end

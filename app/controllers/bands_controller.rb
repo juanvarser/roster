@@ -1,4 +1,5 @@
 class BandsController < ApplicationController
+	before_action :set_band, only: [:show, :update_band_info, :destroy]
 
 	def index
 		@bands = current_user.bands.order(id:'ASC')
@@ -22,39 +23,43 @@ class BandsController < ApplicationController
 	end
 
 	def update_band_info
-		band = current_user.bands.find_by id: params[:band_id]
-
-		if params[:band_description] != nil
-		band.description = params[:band_description]
-		end
-		if params[:band_cache] != nil
-		band.cache = params[:band_cache]
-		end
-		if params[:band_name] != nil
-		band.name = params[:band_name]
-		end
-
 		members = band.members.all
 		render status:200,
 			json: {
 				band: band,
 				members: members
 			}
-		band.save
+			if @band.save band_params
+				flash[:"is-success"] = "Band updated!"
+			else
+				flash[:"is-alert"] = "Oops, something went wrong..."
+			end
+		# if params[:band_description] != nil
+		# band.description = params[:band_description]
+		# end
+		# if params[:band_cache] != nil
+		# band.cache = params[:band_cache]
+		# end
+		# if params[:band_name] != nil
+		# band.name = params[:band_name]
+		# end
+		# band.save
 	end
 
 	def show
-		@band = current_user.bands.find_by id: params[:id]
 		@members = @band.members.new
 	end
 
 	def destroy
-		band = current_user.bands.find_by id: params[:id]
 		band.destroy
 		redirect_to user_bands_path
 	end
 
 	private
+
+	def set_band
+		@band = current_user.bands.find_by id: params[:id]
+	end
 
 	def band_params
 		params.require(:band).permit(

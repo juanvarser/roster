@@ -2,8 +2,8 @@ class ReportsController < ApplicationController
 	respond_to :json
 
 	def events_report
-		events_ary = []
-		band = Band.find_by id: params[:band_id]
+		events_array = []
+		band = current_user.bands.find_by id: params[:band_id]
 		events = band.events.where(completed: true).to_a
 		events.each do |event|
 			report = Report.find_by event_id: event.id
@@ -11,14 +11,14 @@ class ReportsController < ApplicationController
 				event_date: event.date,
 				payload: JSON.parse(report.payload)
 			}
-			events_ary << event
+			events_array << event
 		end
 
 		render json: {
 			band_id: band.id,
 			band_name: band.name,
 			management_comission: band.comission,
-			events: events_ary
+			events: events_array
 		}
 	end
 
