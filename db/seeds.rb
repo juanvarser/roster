@@ -1,4 +1,4 @@
-user = User.find_by id: "7"
+user = User.find_by id: "1"
 
 knockout = user.venues.create(
 	name:"The Knockout",
