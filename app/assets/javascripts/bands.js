@@ -20,7 +20,7 @@ var updateBandInfo = function(data,callback){
 	var api_resource = window.location.pathname.split("/");
 	$.ajax({
     method: 'PATCH',   
-		url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/update_band_info',
+		url: window.location.protocol + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/update_band_info',
 		data: data,
 		success: callback,
 		error: function(data) {

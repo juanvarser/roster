@@ -161,7 +161,7 @@ var getEventReport = function(){
 
     $.ajax({
         method: 'GET',    
-        url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events_report',
+        url: window.location.protocol + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events_report',
         success: handleReport,
         error: function(data){console.log(data)},
         dataType: 'json'

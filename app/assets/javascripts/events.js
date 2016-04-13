@@ -10,7 +10,7 @@ var getEventsInfo = function(){
 	var api_resource = window.location.pathname;
 	$.ajax({
     method: 'GET',    
-		url: 'http://' + base_url + api_resource + '/event_info',
+		url: window.location.protocol + base_url + api_resource + '/event_info',
 		success: handleEvent,
 		error: function(data){console.log(data)},
 		dataType: 'json'

@@ -3,7 +3,7 @@ var updateVenueInfo = function(data,callback){
 	var api_resource = window.location.pathname.split("/");
 	$.ajax({
     method: 'post',   
-		url: 'http://' + base_url + '/users/'+ api_resource[2] + '/venues/' + api_resource[4] + '/update_venue_info',
+		url: window.location.protocol + base_url + '/users/'+ api_resource[2] + '/venues/' + api_resource[4] + '/update_venue_info',
 		data: data,
 		success: callback,
 		error: function(data) {
