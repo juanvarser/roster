@@ -11,3 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
+roster.key
+roster.pdf
