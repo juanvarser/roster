@@ -9,8 +9,8 @@ var getEventsInfo = function(){
 	var base_url = window.location.host;
 	var api_resource = window.location.pathname;
 	$.ajax({
-    method: 'GET',    
-		url: window.location.protocol + base_url + api_resource + '/event_info',
+    method: 'GET',
+		url: 'http://' + base_url + api_resource + '/event_info',
 		success: handleEvent,
 		error: function(data){console.log(data)},
 		dataType: 'json'
@@ -20,6 +20,12 @@ var getEventsInfo = function(){
 
 
 $(document).on('ready', function(){
+
+	$(function() {
+	  $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+	  	alert("The article was deleted.");
+	  });
+	});
 
 	getEventsInfo();
 
@@ -43,7 +49,7 @@ $(document).on('ready', function(){
 		$('#events-title').text('Events on tour');
 		$("a[js-data='events-all']").removeClass('is-active');
 		$("a[js-data='events-expired']").removeClass('is-active');
-		
+
 	});
 
 	var eventsExpired = $("a[js-data='events-expired']").on('click', function(){
@@ -53,7 +59,6 @@ $(document).on('ready', function(){
 		$("div[id='events-ontour']").addClass('js-is-hidden');
 		$('#events-title').text('Completed Events');
 		$("a[js-data='events-all']").removeClass('is-active');
-		$("a[js-data='events-ontour']").removeClass('is-active');	
+		$("a[js-data='events-ontour']").removeClass('is-active');
 	});
 })
-

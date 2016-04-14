@@ -5,19 +5,19 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def authorize_user
-  	unless current_user
-  		flash[:message] = 'Please log in'
-  		redirect_to new_user_session_path
-  	end
+    unless current_user
+      flash[:message] = 'Please log in'
+      redirect_to new_user_session_path
+    end
   end
 
-  def after_sign_in_path_for  resource
+  def after_sign_in_path_for(_resource)
     user_bands_path user_id: current_user.id
   end
 
   protected
 
   def configure_permitted_parameters
-  	devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.for(:sign_up) << :name
   end
 end

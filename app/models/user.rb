@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true
 
-  def self.band_events (events,band)
-		band.events.where(completed: false).each {|event| events << event}
-	end
-
+  def self.band_events(events, band)
+    band.events.where(completed: false).each { |event| events << event }
+  end
 end

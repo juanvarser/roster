@@ -1,33 +1,31 @@
 Rails.application.routes.draw do
-  
   get '/' => 'site#index'
 
   devise_for :users do
     get 'users/:id', to: 'users#show'
   end
-  
+
   resources :users do
-    resources :bands, only: [:index, :new, :create,:show, :edit,:update, :destroy] do
-      patch 'update_band_info', :to => 'bands#update_band_info'
+    resources :bands, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      # patch 'update_band_info', :to => 'bands#update_band_info'
       resources :members, only: [:new, :create, :destroy]
-      resources :products, only: [:index, :new, :create,:edit,:update, :destroy]
-      resources :events, only: [:index,:show, :new, :create,:edit,:update, :destroy] do
-        get 'route_map', :to => 'events#get_route_map'
-        resources :finances, only: [:index, :new, :create,:edit,:update, :destroy]
-        get 'close_event', :to => 'events#close_event'
-        get 'event_info', :to => 'events#get_event_info'
+      resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
+      resources :events, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+        get 'route_map', to: 'events#get_route_map'
+        resources :finances, only: [:index, :new, :create, :edit, :update, :destroy]
+        get 'close_event', to: 'events#close_event'
+        get 'event_info', to: 'events#get_event_info'
       end
 
-      resources :reports, only: [:new,:create,:show]
-      get 'events_report', :to => 'reports#events_report'
-      get 'events_stats', :to => 'reports#events_stats'
+      resources :reports, only: [:new, :create, :show]
+      get 'events_report', to: 'reports#events_report'
+      get 'events_stats', to: 'reports#events_stats'
     end
-    resources :venues, only: [:index, :new, :create,:show, :edit,:update, :destroy] do
-      post 'update_venue_info', :to => 'venues#update_venue_info'
+    resources :venues, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      post 'update_venue_info', to: 'venues#update_venue_info'
     end
 
-  get 'all_bands_events', :to => 'users#all_bands_events'
-
+    get 'all_bands_events', to: 'users#all_bands_events'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,5 +1,5 @@
 class AddQuantityToProduct < ActiveRecord::Migration
   def change
-  	add_column :products, :quantity, :integer
+    add_column :products, :quantity, :integer
   end
 end

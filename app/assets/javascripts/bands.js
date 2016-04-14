@@ -20,7 +20,7 @@ var updateBandInfo = function(data,callback){
 	var api_resource = window.location.pathname.split("/");
 	$.ajax({
     method: 'PATCH',   
-		url: window.location.protocol + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/update_band_info',
+		url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] ,
 		data: data,
 		success: callback,
 		error: function(data) {
@@ -47,6 +47,7 @@ var handleBandDescription = function(){
 };
 	
 var saveBandDescription = function(result){
+	console.log(result);
 	var editButton = '<i class="fa fa-pencil is-update-content-button" onclick="handleBandDescription()"></i>'
 	$('textarea[data-js="description"]').replaceWith('<p data-js="description">' + result.band.description + '</p>');
 	$('h1[data-js="description-content"] i').remove();

@@ -1,5 +1,5 @@
 var handleReport = function(result){
-	
+
 	var labels = [];
 
 	result.events.forEach(function appendLabels(event){
@@ -15,7 +15,7 @@ var handleReport = function(result){
 			});
             receive.push(total);
 		});
-        
+
 		return receive;
 	};
 
@@ -134,7 +134,7 @@ var handleReport = function(result){
                 return receive;
                 };
 
-            var getCommission = function(){ 
+            var getCommission = function(){
                 return (getReceive() - getExpense()) * (result.management_comission / 100)
             };
 
@@ -145,8 +145,8 @@ var handleReport = function(result){
                     '<td>' + getExpense() + '</td>',
                     '<td>' + getCommission() + '</td>',
                 '</tr>'
-            ].join('\n');   
-                            
+            ].join('\n');
+
             $('#event-table-report').append(html);
 
         });
@@ -160,8 +160,8 @@ var getEventReport = function(){
     var api_resource = window.location.pathname.split("/");
 
     $.ajax({
-        method: 'GET',    
-        url: window.location.protocol + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events_report',
+        method: 'GET',
+        url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events_report',
         success: handleReport,
         error: function(data){console.log(data)},
         dataType: 'json'
