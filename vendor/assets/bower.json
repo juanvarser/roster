@@ -1,0 +1,9 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "chart": "latest",
+    "font-awesome": "latest"
+  },
+  "resolutions": {
+  }
+}

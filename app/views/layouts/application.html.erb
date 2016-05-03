@@ -2,11 +2,11 @@
 <html>
 <head>
   <title>Roster</title>
-  <%= stylesheet_link_tag    'application', media: 'all'%>
-	<%= javascript_include_tag "application", params[:controller] %>
-  <%= csrf_meta_tags %>
   <script src="https://use.typekit.net/ccn4the.js"></script>
   <script>try{Typekit.load({ async: false });}catch(e){}</script>
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+	<%= javascript_include_tag "application", params[:controller] %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
 	<%=render '/layouts/header'%>

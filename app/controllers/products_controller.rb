@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = @band.products.find_by id: params[:id]
+    @product = @band.products.find(params[:id])
     if @product.destroy
       flash[:"is-success"] = 'Product deleted'
     else
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
   private
 
   def set_band
-    @band = current_user.bands.find_by id: params[:band_id]
+    @band = current_user.bands.find(params[:band_id])
   end
 
   def product_params

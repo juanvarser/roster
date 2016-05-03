@@ -1,0 +1,5 @@
+function(){
+  $('a[data-remote]').bind('ajax:success', function(event){
+  event.preventDefault();
+  console.log(event)
+});

@@ -1,0 +1,18 @@
+<tr>
+  <td><%= member.name %></td>
+  <td><%= member.instrument %></td>
+  <td><%= member.gear %></td>
+  <td>
+    <% if !member.special_food %>
+      <i class="fa fa-times"></i>
+    <% else %>
+      <i class="fa fa-check"></i>
+    <% end %>
+  </td>
+  <td>
+    <a><i data-js="members" class="fa fa-pencil"></i></a>
+    <%= link_to user_band_member_path(band_id: @band,id: member), method: 'delete' do %>
+    <i class="fa fa-trash"></i>
+    <%end%>
+  </td>
+</tr>

@@ -6,25 +6,17 @@
       <h1 class="title is-1 artist-page-title" data-js="name">
         <%= @band.name %>
       </h1>
-      <i data-js="name" class="fa fa-pencil is-update-hero-button"></i>
     </div>
   </div>
   <%= render 'menu' %>
 </section>
 <div class="container">
-  <div class="columns is-wrap is-columns-margin">	
-  	<div class="column is-4">
-  		<%= image_tag @band.image %>
-      <p class="control">
-        <a class="button is-success is-fullwidth">Update Picture</a>
-      </p>
-      <p class="control"> 
-        <a class="button is-danger is-fullwidth" data-method="DELETE" data-confirm="Are you sure?" href=<%="#{user_band_path}"%>>Delete</a>
-      </p>
-  	</div>
-  	<div class="column is-8">
+  <div class="columns is-wrap is-columns-margin">
+  	<aside class="column is-3">
+        <%= render partial: 'profile' %>
+    </aside>
+  	<section class="column is-9">
   		<div class="content">
-        
         <h1 class="title is-3" data-js="description-content">
           Description
           <i data-js="description" class="fa fa-pencil is-update-content-button"></i>
@@ -32,40 +24,24 @@
         <p data-js="description"><%= @band.description %></p>
       </div>
       <hr>
-      <div class="content">
-        <h1 class="title is-3" data-js="cache-content">
-          Cache
-          <i data-js="cache" class="fa fa-pencil is-update-content-button"></i>
-        </h1>
-        <p data-js="cache"><%= @band.cache %> €</p>
-      </div>
-      <hr>
-      <div class="content">
-        <h1 class="title is-3" data-js="comission-content">
-          Management Commission %:
-          <i data-js="comission" class="fa fa-pencil is-update-content-button"></i>
-        </h1>
-        <p data-js="comission"><%= @band.comission %></p>
-      </div>
-      <hr>
       <h1 class="title is-3">Members</h1>
-      <table class="table">
+      <table class="table" js-data="members">
         <thead>
           <tr>
             <th>Name</th>
             <th>Instrument</th>
             <th>Gear</th>
-            <th>Vegetarian?</th>
+            <th>Special food?</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <%= render partial: 'members', collection: @band.members.all , as: :members %>
+            <%= render partial: 'members/index', collection: @band.members.all, as: :member %>
             <%= render 'members/new' %>
           </tr>
         </tbody>
       </table>
-  	</div>
+  	</section>
   </div>
 </div>

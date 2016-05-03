@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  before_create :set_default_role
+  belongs_to :role
   has_many :bands
   has_many :venues
   # Include default devise modules. Others available are:
@@ -9,5 +11,10 @@ class User < ActiveRecord::Base
 
   def self.band_events(events, band)
     band.events.where(completed: false).each { |event| events << event }
+  end
+
+  private
+  def set_default_role
+    self.role ||= Role.find_by_name('admin')
   end
 end

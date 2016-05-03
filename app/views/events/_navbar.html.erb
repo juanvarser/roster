@@ -9,9 +9,9 @@
 
   <!-- Right side -->
   <div class="navbar-right">
-    <p class="navbar-item"><a js-data="events-all" class="is-active">All(<%=@events.count %>)</a></p>
-    <p class="navbar-item"><a js-data="events-ontour">On Tour(<%= @events.on_tour %>)</a></p>
-    <p class="navbar-item"><a js-data="events-expired">Completed(<%= @events.expired %>)</a></p>
+    <p class="navbar-item"><a js-data="events" class="is-active">All(<%=@events.count %>)</a></p>
+    <p class="navbar-item"><a js-data="events">On Tour(<%= @events.on_tour %>)</a></p>
+    <p class="navbar-item"><a js-data="events">Completed(<%= @events.expired %>)</a></p>
     <p class="navbar-item">
     	<a class="button is-primary" href="<%= new_user_band_event_path %>">
     		<i class="fa fa-plus"></i>

@@ -1,4 +1,4 @@
-<div class="column is-4">
+<div class="column is-4" js-data="<%= event.completed %>">
 	<div class="card">
 	  <div class="card-image">
 	    <figure class="image">
@@ -6,10 +6,6 @@
 	      	<%= image_tag event.image, class:"is-flexible-image" %>
 	      </a>
 	    </figure>
-	    <div class="event-date is-text-centered is-lighter-color">
-				<p class="title is-5 is-text-bold"><%= event.date.strftime("%e %b") %></p>
-				<p class="subtitle is-6"><%= event.time.strftime("%H:%M h") %></p>
-	    </div>
 	  </div>
     <div class="card-content">
       <div class="media">

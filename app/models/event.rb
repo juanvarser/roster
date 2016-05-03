@@ -9,11 +9,6 @@ class Event < ActiveRecord::Base
   validates :event_type, inclusion: %w(band_cache box_office)
   validates_date :date, on_or_after: -> { Date.current }
 
-  def set_band!(band)
-    self.band_id = band.id
-    save!
-  end
-
   def event_completed
     self.completed = true
   end
@@ -24,15 +19,6 @@ class Event < ActiveRecord::Base
 
   def self.expired
     where(completed: true).count
-  end
-
-  def self.generate_report(event, date, payload)
-    Report.create(
-      report_type: event,
-      report_date: date,
-      payload: payload,
-      event_id: event
-    )
   end
 
   def self.get_venue_cache(id)

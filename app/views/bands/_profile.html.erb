@@ -1,0 +1,28 @@
+
+<div class="content">
+  <h3 class="title is-5" data-js="cache-content">
+    Cache
+    <i data-js="cache" class="fa fa-pencil is-update-content-button"></i>
+  </h3>
+  <p data-js="cache"><%= @band.cache %> €</p>
+</div>
+<hr>
+<div class="content">
+  <h3 class="title is-5" data-js="comission-content">
+    Management Commission %:
+    <i data-js="comission" class="fa fa-pencil is-update-content-button"></i>
+  </h3>
+  <p data-js="comission"><%= @band.comission %></p>
+</div>
+<hr>
+<div class="content">
+  <h3 class="title is-5">Media Stats:</h3>
+  <p class="facebook">1.300 followers</p>
+  <p class="twitter">1.300 followers</p>
+  <p class="spotify">1.300 followers</p>
+  <p class="soundcloud">1.300 followers</p>
+</div>
+<p class="control">
+  <%= button_to 'Delete Band', user_band_path, method: :delete, class:'button is-danger' %>
+
+</p>

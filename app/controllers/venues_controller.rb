@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+
   def index
     @venues = current_user.venues.all
   end
@@ -29,7 +30,7 @@ class VenuesController < ApplicationController
   end
 
   def show
-    @venue = current_user.venues.find_by id: params[:id]
+    @venue = current_user.venues.find(params[:id])
   end
 
   private

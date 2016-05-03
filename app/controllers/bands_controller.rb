@@ -2,7 +2,7 @@ class BandsController < ApplicationController
   before_action :set_band, only: [:show, :update, :destroy]
 
   def index
-    @bands = current_user.bands.order(id: 'ASC')
+    @bands = current_user.bands.order(id: :asc)
   end
 
   def new
@@ -27,30 +27,6 @@ class BandsController < ApplicationController
   end
 
   def update
-    @members = @band.members.all
-
-    render status: 200,
-           json: {
-             band: @band,
-             members: @members
-           }
-
-    if @band.update_attribute(:description, params[:band_description])
-      flash[:"is-success"] = 'Band updated!'
-    else
-      flash[:"is-alert"] = 'Oops, something went wrong...'
-      end
-
-    # if params[:band_description] != nil
-    # band.description = params[:band_description]
-    # end
-    # if params[:band_cache] != nil
-    # band.cache = params[:band_cache]
-    # end
-    # if params[:band_name] != nil
-    # band.name = params[:band_name]
-    # end
-    # @band.save
   end
 
   def destroy
@@ -59,9 +35,8 @@ class BandsController < ApplicationController
   end
 
   private
-
   def set_band
-    @band = current_user.bands.find_by id: params[:id]
+    @band = current_user.bands.find(params[:id])
   end
 
   def band_params

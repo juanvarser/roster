@@ -27,17 +27,14 @@
   </div>
 </section>
 <div class="container">
-  <div class="columns is-wrap is-columns-margin">	
-  	<div class="column is-4">
-  		
+  <div class="columns is-wrap is-columns-margin">
+  	<div class="column is-3">
   			<%= image_tag @event.image %>
  			<% if !@event.completed %>
  			<p class="control">
-	      <a class="button is-primary is-fullwidth" data-method="GET" href=<%="#{edit_user_band_event_path}"%>>
-	      	Update Event
-	      </a>
+        <%= button_to 'Update Event', edit_user_band_event_path, method: 'get',class:'button is-primary is-fullwidth' %>
 	    </p>
- 			<p class="control">
+      <p class="control">
 				<a class="button is-success is-fullwidth" data-method="GET" data-confirm="Are you sure?" href="<%= user_band_event_close_event_path(event_id: params[:id]) %>">
 	      	Close Event
 	      </a>
@@ -49,35 +46,35 @@
 	      </a>
 	    </p>
   	</div>
-  	<div class="column is-8">
+  	<div class="column is-9">
 	  		<div id="venue-tab" class="column">
 	  			<h1 class="title is-3">Venue info:</h3>
 					<ul class="content">
 				    <li>
-				    	<strong>Venue: </strong><%=get_venue(@event.venue_id).name %>
+				    	<strong>Venue: </strong><%= @venue.name %>
 				    </li>
 				    <li>
 				    	<strong>Address: </strong>
-				    	<%=get_venue(@event.venue_id).address + ', ' + get_venue(@event.venue_id).city %>
+				    	<%= @venue.address + ', ' + @venue.city %>
 				    </li>
 				    <li>
 				    	<strong>Contact: </strong>
-				    	<%= get_venue(@event.venue_id).contact_name %>
+				    	<%= @venue.contact_name %>
 				    </li>
 						<li>
 				    	<strong>Phone Number: </strong>
-				    	<%= get_venue(@event.venue_id).phone || "Not phone number yet" %>
+				    	<%= @venue.phone || "Not phone number yet" %>
 				    </li>
 				    <li>
 				    	<strong>Email: </strong>
-				    	<%= get_venue(@event.venue_id).email || "Not email yet" %>
+				    	<%= @venue.email || "Not email yet" %>
 				    </li>
 					</ul>
 				</div>
 				<hr>
 				<div id="finances-tab" class="column">
 					<h1 class="title is-3">Finances:</h3>
-					<table class="table">
+					<table class="table" js-data='table-finances'>
 					  <thead>
 					    <tr>
 					      <th>Type</th>
@@ -86,7 +83,6 @@
 					      <th>Actions</th>
 					    </tr>
 					  </thead>
-					  <tfoot>
 					  <tbody>
 							<%= render partial:'finances/index', collection: get_finance(@event.id), as: :finance %>
 							<%if !@event.completed %>
@@ -112,7 +108,7 @@
 					  </tbody>
 					</table>
   			</div>
-  	</div>	
+  	</div>
   	</div>
   </div>
  </div>

@@ -1,42 +1,42 @@
 var handleReport = function(result){
-
 	var labels = [];
 
 	result.events.forEach(function appendLabels(event){
-		labels.push(event.event_date)
+		labels.push(event.date)
 	});
 
 	var getReceive = function(){
 		var receive = [];
 		result.events.forEach(function appendData(event){
 			var total = 0;
-			event.payload[0].forEach(function appendData(value){
-			total += value.amount;
-			});
-            receive.push(total);
+			event.receive.forEach(function appendData(value){
+				total += value.amount;
+				});
+      receive.push(total);
 		});
 
 		return receive;
 	};
 
 	var getExpense = function(){
-		var receive = [];
+		var expense = [];
 		result.events.forEach(function appendData(event){
 			var total = 0;
-			event.payload[1].forEach(function appendData(value){
+			event.expense.forEach(function appendData(value){
 				total += value.amount;
 			});
-            receive.push(total);
+          expense.push(total);
 		});
+		console.log(expense)
+		return expense;
 
-		return receive;
 	};
 
 	var data = {
     labels: labels,
     datasets: [
         {
-            label: "Receive Label",
+            label: "Receive",
             fillColor: "rgba(151,205,118,0.2)",
             strokeColor: "rgba(151,205,118,1)",
             pointColor: "rgba(151,205,118,1)",
@@ -46,7 +46,7 @@ var handleReport = function(result){
             data: getReceive()
         },
         {
-            label: "Expense Label",
+            label: "Expense",
             fillColor: "rgba(237,108,99,0.2)",
             strokeColor: "rgba(237,108,99,1)",
             pointColor: "rgba(237,108,99,1)",
@@ -107,17 +107,20 @@ var handleReport = function(result){
 
 	};
 
-	var ctx = document.getElementById("myChart").getContext("2d");
-	var myLineChart = new Chart(ctx).Line(data, options);
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var myLineChart = new Chart(ctx, {
+  	type: 'line',
+  	data: data,
+  	options: options
+  });
 
     var appendTable = function(){
 
         result.events.forEach(function appendLabels(event){
-
-            var getReceive = function(){
+						var getReceive = function(){
                 var receive = [];
                     var total = 0;
-                    event.payload[0].forEach(function appendData(value){
+                    event.receive.forEach(function appendData(value){
                         total += value.amount;
                     });
                     receive.push(total);
@@ -127,7 +130,7 @@ var handleReport = function(result){
             var getExpense = function(){
                 var receive = [];
                     var total = 0;
-                    event.payload[1].forEach(function appendData(value){
+                    event.expense.forEach(function appendData(value){
                         total += value.amount;
                     });
                     receive.push(total);
@@ -135,12 +138,12 @@ var handleReport = function(result){
                 };
 
             var getCommission = function(){
-                return (getReceive() - getExpense()) * (result.management_comission / 100)
+                return (getReceive() - getExpense()) * (event.band.comission / 100)
             };
 
             var html = [
                 '<tr>',
-                    '<td>' + event.event_date + '</td>',
+                    '<td>' + event.date + '</td>',
                     '<td>' + getReceive() + '</td>',
                     '<td>' + getExpense() + '</td>',
                     '<td>' + getCommission() + '</td>',
@@ -161,7 +164,7 @@ var getEventReport = function(){
 
     $.ajax({
         method: 'GET',
-        url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events_report',
+        url: 'http://' + base_url + '/users/'+ api_resource[2] + '/bands/' + api_resource[4] + '/events',
         success: handleReport,
         error: function(data){console.log(data)},
         dataType: 'json'

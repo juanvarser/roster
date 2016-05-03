@@ -12,25 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require typekit
+//= require chart.js.js
 
 var setNavigation = function() {
-  	$("#tab_menu a").each(function() {   
+  	$("#tab_menu a").each(function() {
     	if (this.href == window.location.href) {
         $(this).closest('li').addClass("is-active");
     	}
 		});
 	};
 
+var flashNotice = function(){
+  $(".notification").html("<%= flash[:notice] %>");
+  setTimeout(function(){
+    $('.notification').fadeOut('slow',function(){
+      $('.notification').remove();
+    });
+  }, 3000);
+
+};
+
 $(document).on('ready',function(){
 	setNavigation();
-
-//  $(window).scroll(function() {
-//   var headerHeight = $('header').height();
-//     if($(window).scrollTop() > headerHeight) {
-//       $('header.header').addClass('navbar-fixed');
-//     } else if($(window).scrollTop() < headerHeight) {
-//       $('header.header').removeClass('navbar-fixed');
-//     }
-// });
 })

@@ -1,0 +1,51 @@
+<div class="column is-4">
+			<div class="card">
+			  <figure class="card-image">
+			    <a href="<%=user_band_path(user_id:current_user.id, id:band.id)%>">
+			    	<%= image_tag band.image, class:"is-flexible-image" %>
+			    </a>
+			    <div class="container card-submenu is-text-centered js-is-hidden">
+	      		<ul>
+		      		<li>
+		      			<a class="button is-primary" href="<%=user_band_path(user_id:current_user.id, id:band.id)%>">
+		      				<i class="fa fa-cog fa-2x"></i>
+		      			</a>
+		      		</li>
+		      		<li>
+		      			<a class="button is-primary" href="<%=user_band_products_path(band_id:band.id)%>">
+		      				<i class="fa fa-archive"></i>
+		      			</a>
+		      		</li>
+		      		<li>
+			      		<a class="button is-primary" href="<%=user_band_events_path(user_id:current_user.id, band_id:band.id)%>">
+			      			<i class="fa fa-calendar-o"></i>
+			      		</a>
+		      		</li>
+		      		<li>
+			      		<a class="button is-primary" href="<%= user_band_events_stats_path(band_id:band.id) %>">
+			      			<i class="fa fa-balance-scale"></i>
+			      		</a>
+		      		</li>
+	      		</ul>
+	     		</div>
+			  </figure>
+				<% if params[:controller] == events %>
+				<div class="event-date is-text-centered is-lighter-color">
+					<p class="title is-5 is-text-bold"><%= event.date.strftime("%e %b") %></p>
+					<p class="subtitle is-6"><%= event.time.strftime("%H:%M h") %></p>
+		    </div>
+				<% end %>
+		  <div class="card-content">
+		    <div class="media">
+		      <div class="media-content">
+		        <a href="<%=user_band_path(user_id:current_user.id, id:band.id)%>">
+		        	<p class="title is-4 is-text-bold card-title-ellipsis"><%= band.name %></p>
+		        </a>
+		      </div>
+		    </div>
+	    <div class="content">
+	      <p class="card-text-ellipsis"><%=band.description%></p>
+	    </div>
+	  </div>
+	</div>
+</div>

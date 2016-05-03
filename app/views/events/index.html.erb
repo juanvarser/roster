@@ -15,15 +15,7 @@
 	<br>
 	<%= render 'navbar' %>
 
-	<div id="events-all" class="columns is-wrap is-columns-margin">
+	<div id="events" class="columns is-wrap is-columns-margin">
 		<%= render partial: 'card', :collection=> @events, :as=> :event%>
-	</div>	
-
-  <div id="events-ontour" class="columns is-wrap is-columns-margin js-is-hidden">
-		<%= render partial: 'card', :collection=> @events.where(completed: false), :as=> :event%>
-	</div>
-
-	<div id="events-expired" class="columns is-wrap is-columns-margin js-is-hidden">
-		<%= render partial: 'card', :collection=> @events.where(completed: true), :as=> :event%>
 	</div>
 </div>

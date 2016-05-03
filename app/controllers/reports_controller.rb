@@ -25,5 +25,3 @@ class ReportsController < ApplicationController
     @band = current_user.bands.find_by id: params[:band_id]
   end
 end
-
-# .sort {|x,y| x[:events_date] <=> y[:events_date]}

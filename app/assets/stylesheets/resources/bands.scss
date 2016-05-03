@@ -67,3 +67,39 @@
 	color:#fff;
 	font-weight:800;
 }
+
+.twitter:before {
+	font-family:FontAwesome;
+	content: "\f099";
+	font-size: 30px;
+  vertical-align: middle;
+  color: #00aced;
+  margin-right: 10px;
+}
+
+.facebook:before {
+	font-family:FontAwesome;
+	content: "\f230";
+	font-size: 30px;
+  vertical-align: middle;
+  color: #3B5998;
+  margin-right: 10px;
+}
+
+.spotify:before {
+	font-family:FontAwesome;
+	content: "\f1bc";
+	font-size: 30px;
+  vertical-align: middle;
+  color: #2ebd59;
+  margin-right: 10px;
+}
+
+.soundcloud:before {
+	font-family:FontAwesome;
+	content: "\f1be";
+	font-size: 30px;
+  vertical-align: middle;
+  color: #f50;
+  margin-right: 10px;
+}

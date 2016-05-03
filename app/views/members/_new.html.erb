@@ -1,4 +1,4 @@
-<%= form_for [current_user, @band, @members] do |f| %>
+<%= form_for [current_user, @band, @members], remote:true do |f| %>
 	  <td><%= f.text_field :name, placeholder:"John Doe", class:"input" %></td>
 	  <td><%=f.text_field :instrument, placeholder:"Rickenbacker 4003", class:"input" %></td>
 	  <td><%= f.text_field :gear, placeholder:"Sinmarc 2x10 1969", class:"input" %></td>
