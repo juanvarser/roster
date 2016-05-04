@@ -5,11 +5,11 @@ Rails.application.routes.draw do
     get 'users/:id', to: 'users#show'
   end
 
-  resources :users do
-    resources :bands, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+  resources :users,only:[:show] do
+    resources :bands do
       # patch 'update_band_info', :to => 'bands#update_band_info'
       resources :members
-      resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
+      resources :products
       resources :events do
         get 'route_map', to: 'events#get_route_map'
         resources :finances
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get 'events_report', to: 'reports#events_report'
       get 'events_stats', to: 'reports#events_stats'
     end
-    resources :venues, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    resources :venues do
       post 'update_venue_info', to: 'venues#update_venue_info'
     end
 

@@ -25,13 +25,11 @@ var handleEvents = function(){
 };
 
 var setEvents = function(param){
-	var arr = $('#events').children();
+	// var arr = $('#events').children();
 	if($(param.target).text().toLowerCase().indexOf('on tour') > -1){
 		$('#events-title').text('Events on tour');
-		arr.map(function(){
-			$('div[js-data=true]').hide();
-			$('div[js-data=false]').show();
-		});
+		$('div[js-data=true]').hide();
+		$('div[js-data=false]').show();
 		} else if($(param.target).text().toLowerCase().indexOf('completed') > -1) {
 		$('#events-title').text('Completed Events');
 		$('div[js-data=false]').hide();

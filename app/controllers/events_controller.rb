@@ -22,8 +22,8 @@ class EventsController < ApplicationController
       flash[:"is-success"] = 'Rock on!You have created a new event'
     else
       @errors = @event.errors.full_messages
-      flash[:"is-alert"] = 'Oops!Something went wrong...'
       render :new
+      flash[:"is-alert"] = 'Oops!Something went wrong...'
     end
   end
 

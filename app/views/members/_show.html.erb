@@ -12,7 +12,7 @@
   <td>
     <a><i data-js="members" class="fa fa-pencil"></i>
     <%= link_to user_band_member_path(band_id: @band.id ,id: @member.id),
-  controller: :members, method: :delete, data: {confirm: 'Are you sure?'} do %>
+  controller: :members, method: :delete,remote: :true do %>
     <i class="fa fa-trash"></i>
   <% end %>
   </td>

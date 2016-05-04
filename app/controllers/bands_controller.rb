@@ -23,7 +23,7 @@ class BandsController < ApplicationController
   end
 
   def show
-    @members = @band.members.new
+    @member = @band.members.new
   end
 
   def update
@@ -32,6 +32,7 @@ class BandsController < ApplicationController
   def destroy
     @band.destroy
     redirect_to user_bands_path
+    flash[:"is-success"] = 'Band deleted'
   end
 
   private

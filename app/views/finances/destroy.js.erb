@@ -1,5 +1,5 @@
 function(){
-  $('a[data-remote]').bind('ajax:success', function(event){
+  $('a[data-remote]').bind('ajax:complete', function(event){
   event.preventDefault();
   console.log(event)
 });

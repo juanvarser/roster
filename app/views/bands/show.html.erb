@@ -38,6 +38,8 @@
         <tbody>
           <tr>
             <%= render partial: 'members/index', collection: @band.members.all, as: :member %>
+          </tr>
+          <tr js-data="members-form">
             <%= render 'members/new' %>
           </tr>
         </tbody>

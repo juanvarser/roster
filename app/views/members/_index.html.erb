@@ -11,7 +11,8 @@
   </td>
   <td>
     <a><i data-js="members" class="fa fa-pencil"></i></a>
-    <%= link_to user_band_member_path(band_id: @band,id: member), method: 'delete' do %>
+    <%= link_to user_band_member_path(band_id: @band,id: member),
+    method: 'delete', remote:true do %>
     <i class="fa fa-trash"></i>
     <%end%>
   </td>

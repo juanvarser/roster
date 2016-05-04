@@ -23,7 +23,7 @@ var setNavigation = function() {
 	};
 
 var flashNotice = function(){
-  $(".notification").html("<%= flash[:notice] %>");
+  $(".notification").html("<%= flash[:is-success] %>");
   setTimeout(function(){
     $('.notification').fadeOut('slow',function(){
       $('.notification').remove();
