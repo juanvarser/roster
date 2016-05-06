@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
   validates :price, numericality: true
   validates :event_type, inclusion: %w(band_cache box_office)
   validates_date :date, on_or_after: -> { Date.current }
+  accepts_nested_attributes_for :finances
 
   def event_completed
     self.completed = true

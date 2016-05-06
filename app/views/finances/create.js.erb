@@ -1,2 +1,4 @@
 $("#finances-tab tr:last").prev().after("<%= j render(partial: 'finances/show') %>");
-// flashNotice('Finance Added!');
+$('#finance_concept').val("");
+$('#finance_amount').val("");
+$(".header").after("<%= j render(partial: '/layouts/flash') %>").done(flashNotice('is-success','Finance Added'))

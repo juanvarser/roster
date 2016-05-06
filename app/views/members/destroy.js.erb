@@ -1,1 +1,2 @@
-
+$("[data-id=<%= @member.id %>]").remove();
+$(".header").after("<%= j render(partial: '/layouts/flash') %>").done(flashNotice('is-success','Member Deleted'))

@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  before_filter :authorize_user
   before_action :set_members
 
   def index
@@ -17,7 +18,7 @@ class MembersController < ApplicationController
     @member = @band.members.new member_params
     respond_to do |format|
       if @member.save
-        format.js{}
+        format.js{flash[:"is-success"] = 'Rock on!You have created a new member'}
         format.html {
           redirect_to user_band_path(@band)
           flash[:"is-success"] = 'Rock on!You have created a new member'

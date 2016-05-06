@@ -86,8 +86,10 @@
 					  <tbody>
 							<%= render partial:'finances/index', collection: get_finance(@event.id), as: :finance %>
 							<%if !@event.completed %>
+                <tr>
 								<%= render 'finances/new' %>
-							<% end %>
+                </tr>
+              <% end %>
   					</tbody>
 					</table>
   			</div>

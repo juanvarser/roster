@@ -22,8 +22,10 @@ var setNavigation = function() {
 		});
 	};
 
-var flashNotice = function(){
-  $(".notification").html("<%= flash[:is-success] %>");
+var flashNotice = function(type,notice){
+  console.log('holiss from aplication');
+  $(".notification").addClass(type);
+  $('.notification').append(notice);
   setTimeout(function(){
     $('.notification').fadeOut('slow',function(){
       $('.notification').remove();

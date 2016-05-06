@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize_user, only: [:show]
+  before_filter :authorize_user
 
   def show
     @user = current_user

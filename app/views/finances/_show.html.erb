@@ -1,9 +1,11 @@
-<tr>
+<tr data-id="<%= @finance.id %>">
   <td><%= @finance.concept_type %></td>
   <td><%= @finance.concept %></td>
   <td><%= @finance.amount %></td>
   <td>
-    <a><i data-js="members" class="fa fa-pencil"></i>
-    <i class="fa fa-trash"></i>
+    <a><i data-js="members" class="fa fa-pencil"></i></a>
+      <%= link_to user_band_event_finance_path(event_id: @event.id ,id: @finance.id),method: :delete, remote: true do %>
+        <i class="fa fa-trash"></i>
+      <% end %>
   </td>
 </tr>

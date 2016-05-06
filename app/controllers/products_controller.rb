@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :authorize_user
   before_action :set_band, only: [:index, :create, :destroy]
 
   def index

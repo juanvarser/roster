@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
   before_action :configure_permitted_parameters, if: :devise_controller?
+  after_filter :clear_xhr_flash
+
+  private
+  def clear_xhr_flash
+    if request.xhr?
+      flash.discard
+    end
+  end
 
   def authorize_user
     unless current_user

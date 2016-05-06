@@ -2,3 +2,4 @@ $("[js-data=members] tr:last").prev().after("<%= j render(partial: 'members/show
 $('#member_name').val("");
 $('#member_instrument').val("");
 $('#member_gear').val("");
+$(".header").after("<%= j render(partial: '/layouts/flash') %>").done(flashNotice('is-success','Member Added'))

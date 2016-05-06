@@ -1,5 +1,2 @@
-function(){
-  $('a[data-remote]').bind('ajax:complete', function(event){
-  event.preventDefault();
-  console.log(event)
-});
+$("[data-id=<%= @finance.id %>]").remove();
+$(".header").after("<%= j render(partial: '/layouts/flash') %>").done(flashNotice('is-success','Finace Deleted'))

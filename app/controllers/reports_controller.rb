@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_filter :authorize_user
   respond_to :json
 
   def events_report
