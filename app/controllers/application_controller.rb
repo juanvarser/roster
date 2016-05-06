@@ -6,10 +6,9 @@ class ApplicationController < ActionController::Base
   after_filter :clear_xhr_flash
 
   private
+
   def clear_xhr_flash
-    if request.xhr?
-      flash.discard
-    end
+    flash.discard if request.xhr?
   end
 
   def authorize_user

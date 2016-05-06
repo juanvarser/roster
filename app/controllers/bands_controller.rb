@@ -37,6 +37,7 @@ class BandsController < ApplicationController
   end
 
   private
+
   def set_band
     @band = current_user.bands.find(params[:id])
   end

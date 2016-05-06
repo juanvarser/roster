@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get 'users/:id', to: 'users#show'
   end
 
-  resources :users,only:[:show] do
+  resources :users, only: [:show] do
     resources :bands do
       # patch 'update_band_info', :to => 'bands#update_band_info'
       resources :members

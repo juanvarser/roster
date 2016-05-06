@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   before_filter :authorize_user
-  
+
   def index
     @venues = current_user.venues.all
   end
